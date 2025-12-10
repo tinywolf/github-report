@@ -55,7 +55,7 @@ pipeline {
               if [ -f "$file" ]; then
                 echo "Processing file: $file"
                 echo "---------------------------------------------------"
-                cat "$file"
+                head -10 "$file"
                 echo ""
                 echo "---------------------------------------------------"
               fi
