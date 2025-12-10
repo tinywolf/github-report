@@ -10,7 +10,7 @@
 > [repo-1](https://github.com/repo-1)  
 > 언어: repo-1 의 대표 언어 | 누적 ★: repo-1 의 누적 스타 | 주간 ★: repo-1 의 주간 스타  
 > 요약: repo-1 의 요약 내용
-
+>  
 > [repo-2](https://github.com/repo-2)  
 > 언어: repo-2 의 대표 언어 | 누적 ★: repo-2 의 누적 스타 | 주간 ★: repo-2 의 주간 스타  
 > 요약: repo-2 의 요약 내용
