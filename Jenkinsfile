@@ -47,26 +47,32 @@ pipeline {
         sh '''#!/bin/bash
           set -euo pipefail
 
-          if [ -s new_files.txt ]; then
-            echo "Processing detected files..."
-            
-            while IFS= read -r file; do
-              if [ -f "$file" ]; then
-                echo "Processing file: $file"
-                
-                # Use python3 to safely construct JSON payload with file content
-                # This handles newlines and special characters correctly
-                if command -v python3 &> /dev/null; then
-                    PAYLOAD=$(python3 -c "import json, sys; print(json.dumps({'text': sys.stdin.read()}))" < "$file")
-                else
-                    echo "Error: python3 is required for JSON processing but not found."
-                    exit 1
-                fi
 
-                echo "Sending report to Agit..."
-                curl -X POST -H "Content-Type: application/json" \
-                     -d "$PAYLOAD" \
-                     https://agit.in/webhook/30350d02-a712-4054-94b1-db2804c0f05c || echo "Failed to send report"
+            if [ -z "${AGIT_WEBHOOK:-}" ]; then
+              echo "Error: AGIT_WEBHOOK environment variable is not set."
+              exit 1
+            fi
+
+            if [ -s new_files.txt ]; then
+              echo "Processing detected files..."
+              
+              while IFS= read -r file; do
+                if [ -f "$file" ]; then
+                  echo "Processing file: $file"
+                  
+                  # Use python3 to safely construct JSON payload with file content
+                  # This handles newlines and special characters correctly
+                  if command -v python3 &> /dev/null; then
+                      PAYLOAD=$(python3 -c "import json, sys; print(json.dumps({'text': sys.stdin.read()}))" < "$file")
+                  else
+                      echo "Error: python3 is required for JSON processing but not found."
+                      exit 1
+                  fi
+
+                  echo "Sending report to Agit..."
+                  curl -X POST -H "Content-Type: application/json" \
+                       -d "$PAYLOAD" \
+                       "$AGIT_WEBHOOK" || echo "Failed to send report"
                      
                 echo ""
                 echo "Done."
