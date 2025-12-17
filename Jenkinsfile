@@ -63,7 +63,7 @@ pipeline {
                   # Use python3 to safely construct JSON payload with file content
                   # This handles newlines and special characters correctly
                   if command -v python3 &> /dev/null; then
-                      PAYLOAD=$(python3 -c "import json, sys; print(json.dumps({'text': sys.stdin.read()}))" < "$file")
+                      PAYLOAD=$(python3 -c "import json, sys; content = sys.stdin.read(); print(json.dumps({'text': '@group\\n' + content}))" < "$file")
                   else
                       echo "Error: python3 is required for JSON processing but not found."
                       exit 1
