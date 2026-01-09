@@ -31,7 +31,7 @@ CODEX_API_KEY=*** npm run generate:weekly-report -- --output custom-dir/custom-r
 OVERWRITE_WEEKLY_TREND=1 CODEX_API_KEY=*** npm run generate:weekly-report
 ```
 
-## 과거 수동 실행 예시(참고)
+## 프롬프트를 직접 실행해서 로컬 파일로 저장
 ```bash
 codex -a never --sandbox danger-full-access "$(cat weekly-trend-report-prompt-cli.md)"
 ```
