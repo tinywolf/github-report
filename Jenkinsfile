@@ -18,6 +18,27 @@ pipeline {
       }
     }
 
+    stage('Generate Weekly Report') {
+      steps {
+        script {
+          sh '''#!/bin/bash
+            set -euo pipefail
+            npm ci
+          '''
+
+          env.GENERATED_REPORT_PATH = sh(
+            script: '''#!/bin/bash
+              set -euo pipefail
+              node scripts/generate-weekly-report.js
+            ''',
+            returnStdout: true
+          ).trim()
+
+          echo "Generated report path: ${env.GENERATED_REPORT_PATH}"
+        }
+      }
+    }
+
     stage('Check Changes') {
       steps {
         sh '''#!/bin/bash
@@ -29,9 +50,18 @@ pipeline {
 
           echo "Checking for new files between $BASE_COMMIT and $CURRENT_COMMIT"
 
-          # 새로 추가된(A) md 파일만 필터링하여 파일 목록 저장
-          git diff --name-only --diff-filter=A "$BASE_COMMIT" "$CURRENT_COMMIT" | grep '^weekly-trend/.*\\.md$' > new_files.txt || true
-          
+          # 새로 추가된(A) md 파일과 Codex가 생성한 최신 리포트를 함께 수집
+          : > new_files.txt
+          git diff --name-only --diff-filter=A "$BASE_COMMIT" "$CURRENT_COMMIT" | grep '^weekly-trend/.*\\.md$' >> new_files.txt || true
+
+          if [ -n "${GENERATED_REPORT_PATH:-}" ] && [ -f "$GENERATED_REPORT_PATH" ]; then
+             if ! grep -Fxq "$GENERATED_REPORT_PATH" new_files.txt; then
+               echo "$GENERATED_REPORT_PATH" >> new_files.txt
+             fi
+          fi
+
+          sort -u new_files.txt -o new_files.txt
+
           if [ -s new_files.txt ]; then
              echo "Found new files:"
              cat new_files.txt

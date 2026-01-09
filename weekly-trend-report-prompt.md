@@ -28,4 +28,3 @@ https://github.com/trending?since=weekly 페이지는 깃헙 주간 트렌드 �
 ## 작업 요구사항
 
 1. 작업 중 생성한 임시 파일은 작업을 완료 한 후 반드시 삭제해야 합니다.
-2. 리포팅 결과를 `weekly-trend` 디렉토리에 `yyyy-mm-dd.md` 파일로 저장하세요. 파일명 내 `yyyy-mm-dd` 는 현재 날짜를 기입해야 합니다.
