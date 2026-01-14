@@ -43,5 +43,5 @@ OVERWRITE_WEEKLY_TREND=1 CODEX_API_KEY=*** npm run generate:weekly-report
 
 ## 프롬프트를 직접 실행해서 weekly-trend 에 파일 저장 (Codex CLI)
 ```bash
-codex -a never --sandbox danger-full-access "$(cat weekly-trend-report-prompt-cli.md)"
+codex -a never --sandbox danger-full-access "$(cat weekly-trend-report-prompt.md)"
 ```

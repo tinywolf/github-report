@@ -8,10 +8,10 @@ pipeline {
   }
 
   environment {
-    // Jenkins credentials ID로 등록된 Codex API 키를 환경 변수로 주입한다.
-    CODEX_API_KEY = credentials('codex-api-key')
+    // Jenkins credentials ID로 등록된 OpenAI API 키를 환경 변수로 주입한다.
+    OPENAI_API_KEY = credentials('openai-api-key')
     OVERWRITE_WEEKLY_TREND = '1'
-    GENERATED_REPORT_PATH = 'report.md'
+
   }
 
   stages {
@@ -34,9 +34,4 @@ pipeline {
     }
   }
 
-  post {
-    always {
-        sh 'scripts/pipeline/cleanup-report.sh'
-    }
-  }
 }

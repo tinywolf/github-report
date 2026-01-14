@@ -7,7 +7,17 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$ROOT_DIR"
 
-REPORT_PATH="${GENERATED_REPORT_PATH:-report.md}"
+# .env에 정의된 환경 변수들을 모두 export하여 하위 스크립트에서 사용 가능하게 한다.
+if [ -f ".env" ]; then
+  set -a
+  # shellcheck source=/dev/null
+  source ".env"
+  set +a
+fi
+
+: "${AGIT_WEBHOOK:?AGIT_WEBHOOK 이 필요합니다. .env 또는 환경 변수로 설정하세요.}"
+
+REPORT_PATH="${REPORT_PATH:-weekly-trend/$(date +%Y-%m-%d).md}"
 
 if [ -z "${AGIT_WEBHOOK:-}" ]; then
   echo "Error: AGIT_WEBHOOK environment variable is not set."
@@ -24,12 +34,13 @@ if ! command -v python3 >/dev/null 2>&1; then
   exit 1
 fi
 
+export REPORT_PATH
 PAYLOAD=$(python3 - <<'PYCODE'
 import json
 import os
 from pathlib import Path
 
-report_path = os.environ.get("GENERATED_REPORT_PATH", "report.md")
+report_path = os.environ.get("REPORT_PATH")
 content = Path(report_path).read_text(encoding="utf-8")
 # @group 태그로 그룹 멘션 후 본문을 전달한다.
 print(json.dumps({"text": "@group\n" + content}, ensure_ascii=False))
