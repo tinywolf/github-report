@@ -1,7 +1,5 @@
-# Instructions
+# AGENTS 행동 규칙
 
-This project defines shared AI behavior rules.
-
-Please read and follow:
-
-➡ AGENTS_GUIDELINE.md
+## 코딩
+- 복잡한 코드나 핵심 로직에는 구현 목적과 이유(why, how)를 한글 주석으로 추가하세요.
+- 변수는 가능한 사용 위치 근처에서 직관적인 이름으로 선언하세요.
