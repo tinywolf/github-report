@@ -7,6 +7,7 @@ description: 깃헙 주간 트렌드 페이지의 내용을 분석하고, 리포
 
 ## 작업 흐름
 1. 깃헙 주간 트렌드 페이지(https://github.com/trending?since=weekly)를 조회.
+  1. 브라우저 에이전트를 사용하지 말고 curl 명령어를 사용할 것.
 2. 깃헙 주간 트렌드 페이지의 내용을 분석.
 3. 리포트 작성 규칙에 따라 리포트를 작성. 리포트 형식 제약 사항을 지켜야 함.
 4. 리포팅 결과를 `weekly-trend` 디렉토리에 `yyyy-mm-dd.md` 파일로 저장. 파일명 내 `yyyy-mm-dd` 는 현재 날짜를 기입.
@@ -29,7 +30,7 @@ description: 깃헙 주간 트렌드 페이지의 내용을 분석하고, 리포
 
 ## 리포트 형식 제약 사항
 1. markdown 으로 작성합니다.
-2. assets/report-format.md 파일을 참고하여 리포트를 작성하세요.
+2. resources/report-format.md 파일을 참고하여 리포트를 작성하세요.
   1. 제한된 문법만 사용해야 합니다.
     1. H1 (#), H2 (##)
     2. bold (*), italic (_)
