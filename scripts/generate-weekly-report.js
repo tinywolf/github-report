@@ -44,7 +44,7 @@ async function main() {
   console.log("🚀 weekly-trend-report-writer 스킬을 실행하여 리포트를 생성합니다...");
 
   // 프롬프트 파일을 직접 읽는 대신 등록된 스킬(/weekly-trend-report-writer)을 호출한다.
-  const { events } = await thread.runStreamed("/weekly-trend-report-writer");
+  const { events } = await thread.runStreamed("$weekly-trend-report-writer");
   for await (const event of events) {
     if (event.type === "turn.failed") {
       throw new Error(event.error?.message || "Codex turn failed");
