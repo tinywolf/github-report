@@ -9,7 +9,6 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, "..");
 // .env 파일을 먼저 불러 Codex 실행에 필요한 키를 환경 변수로 주입한다.
 loadEnv({ path: path.join(repoRoot, ".env") });
-const promptPath = path.join(repoRoot, "weekly-trend-report-prompt.md");
 const outputDir = path.join(repoRoot, "weekly-trend");
 
 const todayStamp = new Date().toISOString().slice(0, 10);
@@ -27,13 +26,6 @@ async function pathExists(targetPath) {
 }
 
 async function main() {
-  const basePrompt = await readFile(promptPath, "utf8");
-  if (!basePrompt.trim()) {
-    throw new Error("weekly-trend-report-prompt.md 내용이 비어 있습니다.");
-  }
-  const prompt = basePrompt.trim();
-  // Codex에게 전달할 프롬프트를 읽어 텍스트 그대로 전달한다.
-
   if ((await pathExists(outputPath)) && !process.env.OVERWRITE_WEEKLY_TREND) {
     throw new Error(
       `이미 ${outputPath} 파일이 존재합니다. 덮어쓰려면 OVERWRITE_WEEKLY_TREND=1 환경 변수를 설정하세요.`,
@@ -42,20 +34,24 @@ async function main() {
 
   // Codex를 저장소 루트 컨텍스트에서 실행해 git 레포 기반 작업이 가능하도록 한다.
   const codex = new Codex();
-  // 네트워크 접근이 필요한 프롬프트이므로 sandbox를 풀어주고 네트워크 허용을 명시한다.
+  // 네트워크 접근과 파일 쓰기가 필요한 스킬이므로 sandbox를 풀고 네트워크를 허용한다.
   const thread = codex.startThread({
     workingDirectory: repoRoot,
     sandboxMode: "danger-full-access",
     networkAccessEnabled: true,
   });
 
-  // Codex의 모든 이벤트 로그를 stdout으로 흘리면서 최종 응답을 기다린다.
-  const { events } = await thread.runStreamed(prompt);
+  console.log("🚀 weekly-trend-report-writer 스킬을 실행하여 리포트를 생성합니다...");
+
+  // 프롬프트 파일을 직접 읽는 대신 등록된 스킬(/weekly-trend-report-writer)을 호출한다.
+  const { events } = await thread.runStreamed("/weekly-trend-report-writer");
   for await (const event of events) {
     if (event.type === "turn.failed") {
       throw new Error(event.error?.message || "Codex turn failed");
     }
   }
+
+  console.log("✅ 리포트 생성이 완료되었습니다.");
 }
 
 main().catch((error) => {
