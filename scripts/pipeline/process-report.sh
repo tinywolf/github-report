@@ -35,7 +35,11 @@ if ! command -v python3 >/dev/null 2>&1; then
 fi
 
 export REPORT_PATH
-PAYLOAD=$(python3 - <<'PYCODE'
+# 페이로드가 클 경우를 대비해 변수가 아닌 임시 파일을 사용한다.
+PAYLOAD_FILE=$(mktemp)
+trap 'rm -f "$PAYLOAD_FILE"' EXIT
+
+python3 - <<'PYCODE' > "$PAYLOAD_FILE"
 import json
 import os
 from pathlib import Path
@@ -45,11 +49,11 @@ content = Path(report_path).read_text(encoding="utf-8")
 # @group 태그로 그룹 멘션 후 본문을 전달한다.
 print(json.dumps({"text": "@group\n" + content}, ensure_ascii=False))
 PYCODE
-)
 
 echo "[process] Sending report to Agit..."
+
 curl -sS -X POST -H "Content-Type: application/json" \
-     -d "$PAYLOAD" \
+     --data-binary "@$PAYLOAD_FILE" \
      "$AGIT_WEBHOOK"
 
 echo "[process] Done."
