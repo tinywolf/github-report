@@ -90,13 +90,22 @@ async function main() {
     );
   }
 
+  // 환경 변수 유입 확인 (디버깅용, 키의 앞 4자리만 출력)
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (apiKey) {
+    console.log(`📡 API Key 로드됨: ${apiKey.slice(0, 4)}***`);
+  } else {
+    console.error("❌ OPENAI_API_KEY 환경 변수가 설정되지 않았습니다.");
+  }
+
   // Codex를 저장소 루트 컨텍스트에서 실행해 git 레포 기반 작업이 가능하도록 한다.
-  const codex = new Codex();
+  const codex = new Codex({ apiKey });
   // 네트워크 접근과 파일 쓰기가 필요한 스킬이므로 sandbox를 풀고 네트워크를 허용한다.
   const thread = codex.startThread({
     workingDirectory: repoRoot,
     sandboxMode: "danger-full-access",
     networkAccessEnabled: true,
+    skipGitRepoCheck: true,
   });
 
   console.log("🚀 weekly-trend-report-writer 스킬을 실행하여 리포트를 생성합니다...");

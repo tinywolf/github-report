@@ -23,7 +23,15 @@ pipeline {
 
     stage('Generate Weekly Trend Report') {
       steps {
-        sh 'scripts/pipeline/generate-weekly-report.sh'
+        // Docker 샌드박스에서 리포트를 생성합니다.
+        sh '''
+          docker build -t github-report-generator .
+          docker run --rm \
+            -e OPENAI_API_KEY=${OPENAI_API_KEY} \
+            -e OVERWRITE_WEEKLY_TREND=${OVERWRITE_WEEKLY_TREND} \
+            -v ${WORKSPACE}/weekly-trend:/app/weekly-trend \
+            github-report-generator
+        '''
       }
     }
 

@@ -1,0 +1,6 @@
+# .dockerignore를 통해 Docker 빌드 컨텍스트에서 제외합니다.
+node_modules
+.git
+.idea
+.env
+weekly-trend/*.md
