@@ -7,7 +7,26 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT_DIR"
 
-scripts/pipeline/generate-weekly-report.sh
+echo "🐳 Docker 샌드박스에서 리포트를 생성합니다..."
+
+# .env 파일이 있으면 로드합니다.
+if [ -f ".env" ]; then
+  set -a
+  source .env
+  set +a
+fi
+
+# 필수 변수 확인
+: "${OPENAI_API_KEY:?OPENAI_API_KEY 가 .env 에 설정되어 있어야 합니다.}"
+
+# 빌드 시 캐시를 활용하여 이미지를 준비합니다.
+docker build -t github-report-generator .
+
+docker run -it --rm \
+  -e OPENAI_API_KEY="$OPENAI_API_KEY" \
+  -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-1}" \
+  -v "$ROOT_DIR/weekly-trend:/app/weekly-trend" \
+  github-report-generator
 
 # 왜: 생성된 리포트 내용을 사용자가 직접 검토한 뒤 배포(전송) 여부를 결정하기 위함.
 # 어떻게: read 명령어로 사용자 입력을 받아 'y'인 경우에만 다음 스크립트를 실행한다.
