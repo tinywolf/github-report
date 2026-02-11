@@ -4,7 +4,7 @@ set -euo pipefail
 # 왜: 생성된 리포트를 Agit 웹훅으로 전송하는 단계를 Jenkins와 로컬에서 동일하게 사용하기 위함.
 # 어떻게: 입력 경로 검증 후 JSON 페이로드로 안전하게 감싸 curl로 전송한다.
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 # .env에 정의된 환경 변수들을 모두 export하여 하위 스크립트에서 사용 가능하게 한다.
@@ -50,10 +50,10 @@ content = Path(report_path).read_text(encoding="utf-8")
 print(json.dumps({"text": "@group\n" + content}, ensure_ascii=False))
 PYCODE
 
-echo "[process] Sending report to Agit..."
+echo "[publish] Sending report to Agit..."
 
 curl -sS -X POST -H "Content-Type: application/json" \
      --data-binary "@$PAYLOAD_FILE" \
      "$AGIT_WEBHOOK"
 
-echo "[process] Done."
+echo "[publish] Done."

@@ -33,7 +33,7 @@ docker run -it --rm \
 echo ""
 echo "------------------------------------------------------------"
 echo "리포트 생성이 완료되었습니다. 'weekly-trend/' 디렉토리에서 결과를 확인하세요."
-echo "계속해서 다음 단계(알림 전송 및 정리)를 진행하시겠습니까? (y/n)"
+echo "계속해서 다음 단계(아지트에 발행)를 진행하시겠습니까? (y/N)"
 echo "------------------------------------------------------------"
 read -r response < /dev/tty
 
@@ -42,4 +42,4 @@ if [[ "$response" != "y" ]]; then
   exit 0
 fi
 
-scripts/pipeline/process-report.sh
+scripts/publish-report.sh

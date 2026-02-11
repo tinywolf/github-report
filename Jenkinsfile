@@ -37,7 +37,7 @@ pipeline {
 
     stage('Process Reports') {
       steps {
-        sh 'scripts/pipeline/process-report.sh'
+        sh 'scripts/publish-report.sh'
       }
     }
   }
