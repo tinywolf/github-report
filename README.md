@@ -2,7 +2,10 @@
 
 ## 실행 방법 (Docker 샌드박스)
 보안과 일관된 환경을 위해 모든 리포트 생성은 **Docker 컨테이너 내부**에서 수행됩니다.
-필수: Docker 설치, `OPENAI_API_KEY` 환경 변수 설정 (또는 `.env` 파일).
+필수: Docker 설치.
+인증은 두 가지 중 하나가 필요합니다.
+- `OPENAI_API_KEY` 환경 변수(또는 `.env`)
+- 또는 호스트의 `~/.codex` 로그인 정보 마운트
 
 ### 1. 단독 실행 (리포트 생성만)
 이미지를 빌드하고 스크립트를 직접 실행합니다. 로컬의 `weekly-trend` 디렉토리를 연결하여 결과를 확인합니다.
@@ -11,9 +14,15 @@
 # 이미지 빌드
 docker build -t github-report-generator .
 
-# 컨테이너 실행
+# 컨테이너 실행 (API 키 방식)
 docker run -it --rm \
   -e OPENAI_API_KEY="your-api-key" \
+  -v $(pwd)/weekly-trend:/app/weekly-trend \
+  github-report-generator
+
+# 컨테이너 실행 (OpenAI 구독 로그인 방식, API 키 없음)
+docker run -it --rm \
+  -v ~/.codex:/root/.codex \
   -v $(pwd)/weekly-trend:/app/weekly-trend \
   github-report-generator
 ```
@@ -23,7 +32,8 @@ docker run -it --rm \
 
 ## run.sh 로 전체 파이프라인 실행
 로컬에서 전체 프로세스(생성 → 검토 → 전송)를 한 번에 실행합니다. 내부적으로 Docker를 사용하여 리포트를 생성합니다.
-- 필수: Node.js 18+, Codex CLI, `OPENAI_API_KEY`와 `AGIT_WEBHOOK`(Agit 웹훅) 환경 변수. `.env.example`을 복사해 값을 채우면 자동으로 로드됩니다.
+- 필수: Node.js 18+, Codex CLI, `AGIT_WEBHOOK`(Agit 웹훅) 환경 변수.
+- 인증: `.env`에 `OPENAI_API_KEY`를 넣거나, 키가 없으면 `run.sh`가 자동으로 `~/.codex`를 마운트해 실행합니다.
 - 실행:
 ```bash
 ./run.sh
