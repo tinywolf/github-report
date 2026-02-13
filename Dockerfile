@@ -16,8 +16,8 @@ RUN npm ci
 # 전체 소스 코드를 복사합니다.
 COPY . .
 
-# 리포트가 생성될 디렉토리를 보장합니다.
-RUN mkdir -p weekly-trend
+# 리포트 출력 디렉토리와 인증 파일 마운트 경로를 보장합니다.
+RUN mkdir -p weekly-trend /root/.codex
 
 # 기본 환경 변수 설정 (런타임에 -e 옵션으로 덮어쓰기 권장)
 ENV OPENAI_API_KEY=""

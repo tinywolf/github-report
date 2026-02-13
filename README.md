@@ -5,7 +5,7 @@
 필수: Docker 설치.
 인증은 두 가지 중 하나가 필요합니다.
 - `OPENAI_API_KEY` 환경 변수(또는 `.env`)
-- 또는 호스트의 `~/.codex` 로그인 정보 마운트
+- 또는 호스트의 `~/.codex/auth.json` 로그인 정보 파일 마운트
 
 ### 1. 단독 실행 (리포트 생성만)
 이미지를 빌드하고 스크립트를 직접 실행합니다. 로컬의 `weekly-trend` 디렉토리를 연결하여 결과를 확인합니다.
@@ -22,7 +22,7 @@ docker run -it --rm \
 
 # 컨테이너 실행 (OpenAI 구독 로그인 방식, API 키 없음)
 docker run -it --rm \
-  -v ~/.codex:/root/.codex \
+  -v ~/.codex/auth.json:/root/.codex/auth.json:ro \
   -v $(pwd)/weekly-trend:/app/weekly-trend \
   github-report-generator
 ```
@@ -33,7 +33,7 @@ docker run -it --rm \
 ## run.sh 로 전체 파이프라인 실행
 로컬에서 전체 프로세스(생성 → 검토 → 전송)를 한 번에 실행합니다. 내부적으로 Docker를 사용하여 리포트를 생성합니다.
 - 필수: Node.js 18+, Codex CLI, `AGIT_WEBHOOK`(Agit 웹훅) 환경 변수.
-- 인증: `.env`에 `OPENAI_API_KEY`를 넣거나, 키가 없으면 `run.sh`가 자동으로 `~/.codex`를 마운트해 실행합니다.
+- 인증: `.env`에 `OPENAI_API_KEY`를 넣거나, 키가 없으면 `run.sh`가 자동으로 `~/.codex/auth.json` 파일만 읽기 전용으로 마운트해 실행합니다.
 - 실행:
 ```bash
 ./run.sh

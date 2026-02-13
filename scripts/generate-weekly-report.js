@@ -95,8 +95,8 @@ async function main() {
     console.log(`📡 API Key 로드됨: ${apiKey.slice(0, 4)}***`);
   } else {
     // 왜: OpenAI 구독 기반 로그인(Codex CLI 인증 정보)이 있으면 API 키 없이도 SDK 실행이 가능하다.
-    // 어떻게: SDK 기본 인증 탐색 경로(~/.codex 등)를 사용하도록 new Codex()로 초기화한다.
-    console.log("🔐 OPENAI_API_KEY가 없어 기본 Codex 인증 정보(~/.codex)를 사용합니다.");
+    // 어떻게: SDK 기본 인증 탐색 경로(~/.codex/auth.json 등)를 사용하도록 new Codex()로 초기화한다.
+    console.log("🔐 OPENAI_API_KEY가 없어 기본 Codex 인증 정보(~/.codex/auth.json)를 사용합니다.");
   }
 
   // Codex를 저장소 루트 컨텍스트에서 실행해 git 레포 기반 작업이 가능하도록 한다.

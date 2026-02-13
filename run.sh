@@ -18,21 +18,21 @@ fi
 
 # 인증 방식 분기:
 # 1) OPENAI_API_KEY가 있으면 키 기반 인증
-# 2) 키가 없으면 호스트 ~/.codex를 컨테이너 /root/.codex로 마운트하여 구독/로그인 기반 인증
+# 2) 키가 없으면 호스트 ~/.codex/auth.json 파일만 컨테이너 /root/.codex/auth.json으로 마운트하여 구독/로그인 기반 인증
 declare -a docker_auth_args=()
 if [ -n "${OPENAI_API_KEY:-}" ]; then
   echo "🔐 OPENAI_API_KEY 기반 인증으로 실행합니다."
   docker_auth_args+=(-e "OPENAI_API_KEY=$OPENAI_API_KEY")
 else
-  local_codex_home="${HOME}/.codex"
-  if [ ! -d "$local_codex_home" ]; then
-    echo "❌ OPENAI_API_KEY가 없고 ${local_codex_home} 디렉토리도 없습니다."
-    echo "   .env에 OPENAI_API_KEY를 설정하거나, Codex 로그인으로 ~/.codex를 준비해 주세요."
+  local_codex_auth_file="${HOME}/.codex/auth.json"
+  if [ ! -f "$local_codex_auth_file" ]; then
+    echo "❌ OPENAI_API_KEY가 없고 ${local_codex_auth_file} 파일도 없습니다."
+    echo "   .env에 OPENAI_API_KEY를 설정하거나, Codex 로그인으로 ~/.codex/auth.json을 준비해 주세요."
     exit 1
   fi
 
-  echo "🔐 OPENAI_API_KEY 없이 ~/.codex 인증 정보를 마운트해 실행합니다."
-  docker_auth_args+=(-v "$local_codex_home:/root/.codex")
+  echo "🔐 OPENAI_API_KEY 없이 ~/.codex/auth.json 파일만 마운트해 실행합니다."
+  docker_auth_args+=(-v "$local_codex_auth_file:/root/.codex/auth.json:ro")
 fi
 
 # 빌드 시 캐시를 활용하여 이미지를 준비합니다.
