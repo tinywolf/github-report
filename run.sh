@@ -16,14 +16,30 @@ if [ -f ".env" ]; then
   set +a
 fi
 
-# 필수 변수 확인
-: "${OPENAI_API_KEY:?OPENAI_API_KEY 가 .env 에 설정되어 있어야 합니다.}"
+# 인증 방식 분기:
+# 1) OPENAI_API_KEY가 있으면 키 기반 인증
+# 2) 키가 없으면 호스트 ~/.codex를 컨테이너 /root/.codex로 마운트하여 구독/로그인 기반 인증
+declare -a docker_auth_args=()
+if [ -n "${OPENAI_API_KEY:-}" ]; then
+  echo "🔐 OPENAI_API_KEY 기반 인증으로 실행합니다."
+  docker_auth_args+=(-e "OPENAI_API_KEY=$OPENAI_API_KEY")
+else
+  local_codex_home="${HOME}/.codex"
+  if [ ! -d "$local_codex_home" ]; then
+    echo "❌ OPENAI_API_KEY가 없고 ${local_codex_home} 디렉토리도 없습니다."
+    echo "   .env에 OPENAI_API_KEY를 설정하거나, Codex 로그인으로 ~/.codex를 준비해 주세요."
+    exit 1
+  fi
+
+  echo "🔐 OPENAI_API_KEY 없이 ~/.codex 인증 정보를 마운트해 실행합니다."
+  docker_auth_args+=(-v "$local_codex_home:/root/.codex")
+fi
 
 # 빌드 시 캐시를 활용하여 이미지를 준비합니다.
 docker build -t github-report-generator .
 
 docker run -it --rm \
-  -e OPENAI_API_KEY="$OPENAI_API_KEY" \
+  "${docker_auth_args[@]}" \
   -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-1}" \
   -v "$ROOT_DIR/weekly-trend:/app/weekly-trend" \
   github-report-generator
