@@ -14,6 +14,10 @@
 > [repo-2](https://github.com/repo-2)  
 > 언어: repo-2 의 대표 언어 | 누적 ★: repo-2 의 누적 스타 | 주간 ★: repo-2 의 주간 스타  
 > 요약: repo-2 의 요약 내용
+>  
+> [repo-3](https://github.com/repo-3)  
+> 언어: repo-3 의 대표 언어 | 누적 ★: repo-3 의 누적 스타 | 주간 ★: repo-3 의 주간 스타  
+> 요약: repo-3 의 요약 내용
 
 ## 3. 주요 리포지토리 분석
 
@@ -22,3 +26,6 @@
 
 *[repo-2](https://github.com/repo-2)*
 - repo-2 에 대한 설명
+
+*[repo-3](https://github.com/repo-3)*
+- repo-3 에 대한 설명
