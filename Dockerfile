@@ -2,7 +2,9 @@
 FROM node:22-slim
 
 # git은 저장소 컨텍스트를 파악하는 데 필요하므로 설치합니다.
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git ca-certificates ripgrep jq curl unzip zip procps less fd-find \
+ && rm -rf /var/lib/apt/lists/*
 
 # 작업 디렉토리를 설정합니다.
 WORKDIR /app
