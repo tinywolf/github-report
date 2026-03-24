@@ -40,6 +40,7 @@ docker build -t github-report-generator .
 
 docker run -it --rm \
   "${docker_auth_args[@]}" \
+  -e TZ="${TZ:-Asia/Seoul}" \
   -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-1}" \
   -v "$ROOT_DIR/weekly-trend:/app/weekly-trend" \
   github-report-generator
