@@ -5,7 +5,8 @@
   "type": "module",
   "description": "Codex SDK를 사용한 GitHub 주간 트렌드 리포트 생성 자동화",
   "scripts": {
-    "generate:weekly-report": "node scripts/generate-weekly-report.js"
+    "generate:weekly-report": "node scripts/generate-weekly-report.js",
+    "postgenerate:weekly-report": "npx -y @ccusage/codex@latest session"
   },
   "dependencies": {
     "@openai/codex-sdk": "^0.101.0",
