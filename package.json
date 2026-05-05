@@ -9,7 +9,7 @@
     "postgenerate:weekly-report": "npx -y @ccusage/codex@latest session"
   },
   "dependencies": {
-    "@openai/codex-sdk": "^0.101.0",
+    "@openai/codex-sdk": "^0.128.0",
     "dotenv": "^17.2.3"
   }
 }
