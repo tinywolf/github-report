@@ -11,6 +11,7 @@ pipeline {
     // Jenkins credentials ID로 등록된 OpenAI API 키를 환경 변수로 주입한다.
     OPENAI_API_KEY = credentials('openai-api-key')
     OVERWRITE_WEEKLY_TREND = '1'
+    TZ = 'Asia/Seoul'
 
   }
 
@@ -29,6 +30,7 @@ pipeline {
           docker run --rm \
             -e OPENAI_API_KEY=${OPENAI_API_KEY} \
             -e OVERWRITE_WEEKLY_TREND=${OVERWRITE_WEEKLY_TREND} \
+            -e TZ=${TZ} \
             -v ${WORKSPACE}/weekly-trend:/app/weekly-trend \
             github-report-generator
         '''

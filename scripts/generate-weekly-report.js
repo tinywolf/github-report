@@ -11,7 +11,23 @@ const repoRoot = path.resolve(__dirname, "..");
 loadEnv({ path: path.join(repoRoot, ".env") });
 const outputDir = path.join(repoRoot, "weekly-trend");
 
-const todayStamp = new Date().toISOString().slice(0, 10);
+const reportTimeZone = process.env.TZ || "UTC";
+
+function formatDateInTimeZone(date, timeZone) {
+  const parts = new Intl.DateTimeFormat("en", {
+    timeZone,
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(date);
+  const datePartMap = Object.fromEntries(parts.map((part) => [part.type, part.value]));
+
+  return `${datePartMap.year}-${datePartMap.month}-${datePartMap.day}`;
+}
+
+// 왜: toISOString()은 항상 UTC 기준이라 KST 자정 직후 실행 시 전날 파일명이 생성된다.
+// 어떻게: 실행 환경에서 주어진 TZ를 명시적으로 사용해 리포트 날짜 스탬프를 만든다.
+const todayStamp = formatDateInTimeZone(new Date(), reportTimeZone);
 const outputPath = path.join(outputDir, `${todayStamp}.md`);
 
 // 리포트 덮어쓰기를 제어: OVERWRITE_WEEKLY_TREND=1 필요.
