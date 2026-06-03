@@ -7,6 +7,18 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT_DIR"
 
+# 왜: Codex SDK가 오래되면 기본 모델/지원 모델 동작이 달라질 수 있어 실행 전에 인지할 필요가 있다.
+# 어떻게: npm outdated 결과만 보여주고, outdated/조회 실패 exit code와 무관하게 다음 단계로 진행한다.
+codex_sdk_outdated_status=0
+echo "🔎 Codex SDK 최신 버전 확인..."
+npm outdated @openai/codex-sdk || codex_sdk_outdated_status=$?
+if [ "$codex_sdk_outdated_status" -eq 0 ]; then
+  echo "✅ Codex SDK 업데이트 대상이 없습니다."
+else
+  echo "ℹ️ Codex SDK 최신 버전 확인 결과는 위 출력을 참고하세요. 리포트 생성은 계속 진행합니다."
+fi
+echo ""
+
 echo "🐳 Docker 샌드박스에서 리포트를 생성합니다..."
 
 # .env 파일이 있으면 로드합니다.
