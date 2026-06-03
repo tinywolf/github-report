@@ -35,12 +35,16 @@ else
   docker_auth_args+=(-v "$local_codex_auth_file:/root/.codex/auth.json:ro")
 fi
 
+codex_model="${CODEX_MODEL:-gpt-5.5}"
+echo "🧠 Codex 모델: ${codex_model}"
+
 # 빌드 시 캐시를 활용하여 이미지를 준비합니다.
 docker build -t github-report-generator .
 
 docker run -it --rm \
   "${docker_auth_args[@]}" \
   -e TZ="${TZ:-Asia/Seoul}" \
+  -e CODEX_MODEL="${codex_model}" \
   -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-1}" \
   -v "$ROOT_DIR/weekly-trend:/app/weekly-trend" \
   github-report-generator
