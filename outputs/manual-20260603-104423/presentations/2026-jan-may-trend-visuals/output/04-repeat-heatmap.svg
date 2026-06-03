@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f9f9a"/>
+      <stop offset="45%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: "Apple SD Gothic Neo", "Noto Sans CJK KR", "Pretendard", Arial, sans-serif; letter-spacing: 0; }
+    .mono { font-family: "SFMono-Regular", Consolas, monospace; }
+  </style>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="72" y="72" width="94" height="8" rx="4" fill="url(#accent)"/>
+  <text class="" x="72" y="132" text-anchor="start" font-size="46" font-weight="860" fill="#101828" opacity="1">반복 등장 프로젝트: 오래 간 신호는 “에이전트 운영 체계”</text>
+  <text class="" x="74" y="176" text-anchor="start" font-size="22" font-weight="560" fill="#667085" opacity="1">점 크기는 해당 주간 스타 증가량, 10k 이상은 숫자 표기</text>
+  <rect x="620" y="202" width="184" height="24" rx="12" fill="#0f9f9a" opacity="0.14"/>
+<text class="" x="712" y="220" text-anchor="middle" font-size="14" font-weight="900" fill="#0f9f9a" opacity="1">1월</text>
+<rect x="812" y="202" width="184" height="24" rx="12" fill="#f97316" opacity="0.14"/>
+<text class="" x="904" y="220" text-anchor="middle" font-size="14" font-weight="900" fill="#f97316" opacity="1">2월</text>
+<rect x="1004" y="202" width="184" height="24" rx="12" fill="#2563eb" opacity="0.14"/>
+<text class="" x="1096" y="220" text-anchor="middle" font-size="14" font-weight="900" fill="#2563eb" opacity="1">3월</text>
+<rect x="1196" y="202" width="88" height="24" rx="12" fill="#7c3aed" opacity="0.14"/>
+<text class="" x="1240" y="220" text-anchor="middle" font-size="14" font-weight="900" fill="#7c3aed" opacity="1">4월</text>
+<rect x="1292" y="202" width="184" height="24" rx="12" fill="#16a34a" opacity="0.14"/>
+<text class="" x="1384" y="220" text-anchor="middle" font-size="14" font-weight="900" fill="#16a34a" opacity="1">5월</text>
+<text class="" x="642" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">01-07</text>
+<text class="" x="690" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">01-14</text>
+<text class="" x="738" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">01-21</text>
+<text class="" x="786" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">01-28</text>
+<text class="" x="834" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">02-04</text>
+<text class="" x="882" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">02-11</text>
+<text class="" x="930" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">02-18</text>
+<text class="" x="978" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">02-25</text>
+<text class="" x="1026" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">03-04</text>
+<text class="" x="1074" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">03-11</text>
+<text class="" x="1122" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">03-18</text>
+<text class="" x="1170" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">03-25</text>
+<text class="" x="1218" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">04-01</text>
+<text class="" x="1266" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">04-08</text>
+<text class="" x="1314" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">05-06</text>
+<text class="" x="1362" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">05-13</text>
+<text class="" x="1410" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">05-20</text>
+<text class="" x="1458" y="252" text-anchor="middle" font-size="13" font-weight="760" fill="#667085" opacity="1">05-27</text>
+<g>
+<text class="" x="106" y="287" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">obra/superpowers</text>
+<text class="" x="552" y="287" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">7회 · 최대 20k</text>
+<circle cx="642" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="280" r="12.6" fill="#f97316" opacity="0.92"/>
+
+<circle cx="738" cy="280" r="15.9" fill="#f97316" opacity="0.92"/>
+<text class="" x="738" y="284" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">11k</text>
+<circle cx="786" cy="280" r="14.2" fill="#f97316" opacity="0.92"/>
+
+<circle cx="834" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="280" r="17.3" fill="#f97316" opacity="0.92"/>
+<text class="" x="1122" y="284" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">15k</text>
+<circle cx="1170" cy="280" r="18.9" fill="#f97316" opacity="0.92"/>
+<text class="" x="1170" y="284" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">20k</text>
+<circle cx="1218" cy="280" r="18.4" fill="#f97316" opacity="0.92"/>
+<text class="" x="1218" y="284" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">18k</text>
+<circle cx="1266" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="280" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="280" r="15.7" fill="#f97316" opacity="0.92"/>
+<text class="" x="1410" y="284" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">11k</text>
+<circle cx="1458" cy="280" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="323" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">bytedance/deer-flow</text>
+<text class="" x="552" y="323" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">4회 · 최대 14k</text>
+<circle cx="642" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="316" r="10.3" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1074" cy="316" r="12.6" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1122" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="316" r="15.6" fill="#0f9f9a" opacity="0.92"/>
+<text class="" x="1170" y="320" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">10k</text>
+<circle cx="1218" cy="316" r="16.9" fill="#0f9f9a" opacity="0.92"/>
+<text class="" x="1218" y="320" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">14k</text>
+<circle cx="1266" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="316" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="316" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="359" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">TauricResearch/TradingAgents</text>
+<text class="" x="552" y="359" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">4회 · 최대 13k</text>
+<circle cx="642" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="352" r="13.7" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1218" cy="352" r="12.9" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1266" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="352" r="16.8" fill="#0f9f9a" opacity="0.92"/>
+<text class="" x="1314" y="356" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">13k</text>
+<circle cx="1362" cy="352" r="13.4" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1410" cy="352" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="352" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="395" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">NousResearch/hermes-agent</text>
+<text class="" x="552" y="395" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">4회 · 최대 10k</text>
+<circle cx="642" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="388" r="10.6" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1122" cy="388" r="13.0" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1170" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="388" r="14.4" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1266" cy="388" r="15.7" fill="#0f9f9a" opacity="0.92"/>
+<text class="" x="1266" y="392" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">10k</text>
+<circle cx="1314" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="388" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="388" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="431" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">666ghj/MiroFish</text>
+<text class="" x="552" y="431" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">3회 · 최대 19k</text>
+<circle cx="642" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="424" r="15.1" fill="#2563eb" opacity="0.92"/>
+
+<circle cx="1122" cy="424" r="18.6" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1122" y="428" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">19k</text>
+<circle cx="1170" cy="424" r="16.2" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1170" y="428" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">12k</text>
+<circle cx="1218" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="424" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="424" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="467" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">anomalyco/opencode</text>
+<text class="" x="552" y="467" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">3회 · 최대 15k</text>
+<circle cx="642" cy="460" r="13.3" fill="#2563eb" opacity="0.92"/>
+
+<circle cx="690" cy="460" r="17.5" fill="#2563eb" opacity="0.92"/>
+<text class="" x="690" y="464" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">15k</text>
+<circle cx="738" cy="460" r="17.0" fill="#2563eb" opacity="0.92"/>
+<text class="" x="738" y="464" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">14k</text>
+<circle cx="786" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="460" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="460" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="503" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">ruvnet/RuView</text>
+<text class="" x="552" y="503" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">3회 · 최대 9.8k</text>
+<circle cx="642" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="496" r="15.4" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1122" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="496" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="496" r="14.6" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1458" cy="496" r="13.6" fill="#0f9f9a" opacity="0.92"/>
+
+</g>
+<g>
+<text class="" x="106" y="539" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">rohitg00/agentmemory</text>
+<text class="" x="552" y="539" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">3회 · 최대 8.4k</text>
+<circle cx="642" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="532" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="532" r="11.7" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1410" cy="532" r="14.8" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1458" cy="532" r="12.7" fill="#0f9f9a" opacity="0.92"/>
+
+</g>
+<g>
+<text class="" x="106" y="575" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">VectifyAI/PageIndex</text>
+<text class="" x="552" y="575" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">3회 · 최대 4.4k</text>
+<circle cx="642" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="568" r="12.5" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="834" cy="568" r="11.5" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="882" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="568" r="12.6" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1410" cy="568" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="568" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="611" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">bytedance/UI-TARS-desktop</text>
+<text class="" x="552" y="611" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">3회 · 최대 3.9k</text>
+<circle cx="642" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="604" r="11.4" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="738" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="604" r="11.2" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="930" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="604" r="12.3" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="1410" cy="604" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="604" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="647" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">badlogic/pi-mono</text>
+<text class="" x="552" y="647" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">3회 · 최대 3.8k</text>
+<circle cx="642" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="640" r="12.0" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="882" cy="640" r="12.3" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="930" cy="640" r="11.9" fill="#0f9f9a" opacity="0.92"/>
+
+<circle cx="978" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="640" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="640" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="683" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">mattpocock/skills</text>
+<text class="" x="552" y="683" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">2회 · 최대 31k</text>
+<circle cx="642" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="676" r="22.0" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1314" y="680" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">31k</text>
+<circle cx="1362" cy="676" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="676" r="18.7" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1410" y="680" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">19k</text>
+<circle cx="1458" cy="676" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="719" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">msitarzewski/agency-agents</text>
+<text class="" x="552" y="719" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">2회 · 최대 29k</text>
+<circle cx="642" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="712" r="19.0" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1074" y="716" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">20k</text>
+<circle cx="1122" cy="712" r="21.5" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1122" y="716" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">29k</text>
+<circle cx="1170" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="712" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="712" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="755" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">affaan-m/everything-claude-code</text>
+<text class="" x="552" y="755" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">2회 · 최대 21k</text>
+<circle cx="642" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="748" r="19.5" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1170" y="752" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">21k</text>
+<circle cx="1218" cy="748" r="19.0" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1218" y="752" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">20k</text>
+<circle cx="1266" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="748" r="5.5" fill="#e3e9f2"/>
+<circle cx="1458" cy="748" r="5.5" fill="#e3e9f2"/>
+</g>
+<g>
+<text class="" x="106" y="791" text-anchor="start" font-size="19" font-weight="820" fill="#101828" opacity="1">colbymchenry/codegraph</text>
+<text class="" x="552" y="791" text-anchor="end" font-size="15" font-weight="730" fill="#667085" opacity="1">2회 · 최대 21k</text>
+<circle cx="642" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="690" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="738" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="786" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="834" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="882" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="930" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="978" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1026" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1074" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1122" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1170" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1218" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1266" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1314" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1362" cy="784" r="5.5" fill="#e3e9f2"/>
+<circle cx="1410" cy="784" r="12.8" fill="#2563eb" opacity="0.92"/>
+
+<circle cx="1458" cy="784" r="19.4" fill="#2563eb" opacity="0.92"/>
+<text class="" x="1458" y="788" text-anchor="middle" font-size="10" font-weight="900" fill="#fff" opacity="1">21k</text>
+</g>
+  <text class="" x="72" y="846" text-anchor="start" font-size="16" font-weight="560" fill="#98a2b3" opacity="1">Source: local weekly-trend reports, 2026-01-07 ~ 2026-05-27</text>
+</svg>

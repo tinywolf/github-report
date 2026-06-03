@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f9f9a"/>
+      <stop offset="45%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: "Apple SD Gothic Neo", "Noto Sans CJK KR", "Pretendard", Arial, sans-serif; letter-spacing: 0; }
+    .mono { font-family: "SFMono-Regular", Consolas, monospace; }
+  </style>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="72" y="72" width="94" height="8" rx="4" fill="url(#accent)"/>
+  <text class="" x="72" y="132" text-anchor="start" font-size="46" font-weight="860" fill="#101828" opacity="1">2026년 1~5월 GitHub 트렌드: 에이전트의 진화</text>
+  <text class="" x="74" y="176" text-anchor="start" font-size="22" font-weight="560" fill="#667085" opacity="1">18개 주간 리포트 · 226개 항목 · 166개 고유 저장소</text>
+  <g>
+<rect x="96" y="306" width="222" height="292" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="96" y="306" width="222" height="10" rx="5" fill="#0f9f9a"/>
+<text class="" x="124" y="362" text-anchor="start" font-size="27" font-weight="880" fill="#0f9f9a" opacity="1">1월</text>
+<text class="" x="124" y="409" text-anchor="start" font-size="26" font-weight="880" fill="#101828" opacity="1">도구 대중화</text>
+<rect x="124" y="438" width="160" height="34" rx="17" fill="#0f9f9a" opacity="0.12"/>
+<text class="" x="140" y="461" text-anchor="start" font-size="15" font-weight="840" fill="#0f9f9a" opacity="1">33개 · 27개 고유</text>
+<text class="" x="124" y="510" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">opencode ·</text>
+<text class="" x="124" y="530.74" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">claude-code</text>
+<text class="" x="124" y="566" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">쓸 수 있나?</text>
+</g>
+<path d="M 316 420 L 368 420" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<path d="M 368 420 L 350 402 M 368 420 L 350 438" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<g>
+<rect x="388" y="340" width="222" height="292" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="388" y="340" width="222" height="10" rx="5" fill="#f97316"/>
+<text class="" x="416" y="396" text-anchor="start" font-size="27" font-weight="880" fill="#f97316" opacity="1">2월</text>
+<text class="" x="416" y="443" text-anchor="start" font-size="26" font-weight="880" fill="#101828" opacity="1">실무 적용</text>
+<rect x="416" y="472" width="160" height="34" rx="17" fill="#f97316" opacity="0.12"/>
+<text class="" x="432" y="495" text-anchor="start" font-size="15" font-weight="840" fill="#f97316" opacity="1">48개 · 40개 고유</text>
+<text class="" x="416" y="544" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">shannon ·</text>
+<text class="" x="416" y="564.74" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">claude-mem</text>
+<text class="" x="416" y="600" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">어디에 붙이나?</text>
+</g>
+<path d="M 608 454 L 660 454" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<path d="M 660 454 L 642 436 M 660 454 L 642 472" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<g>
+<rect x="680" y="306" width="222" height="292" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="680" y="306" width="222" height="10" rx="5" fill="#2563eb"/>
+<text class="" x="708" y="362" text-anchor="start" font-size="27" font-weight="880" fill="#2563eb" opacity="1">3월</text>
+<text class="" x="708" y="409" text-anchor="start" font-size="26" font-weight="880" fill="#101828" opacity="1">운영 체계</text>
+<rect x="708" y="438" width="160" height="34" rx="17" fill="#2563eb" opacity="0.12"/>
+<text class="" x="724" y="461" text-anchor="start" font-size="15" font-weight="840" fill="#2563eb" opacity="1">51개 · 44개 고유</text>
+<text class="" x="708" y="510" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">superpowers ·</text>
+<text class="" x="708" y="530.74" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">deer-flow</text>
+<text class="" x="708" y="566" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">안전하게 굴리나?</text>
+</g>
+<path d="M 900 420 L 952 420" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<path d="M 952 420 L 934 402 M 952 420 L 934 438" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<g>
+<rect x="972" y="340" width="222" height="292" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="972" y="340" width="222" height="10" rx="5" fill="#7c3aed"/>
+<text class="" x="1000" y="396" text-anchor="start" font-size="27" font-weight="880" fill="#7c3aed" opacity="1">4월</text>
+<text class="" x="1000" y="443" text-anchor="start" font-size="26" font-weight="880" fill="#101828" opacity="1">팀 실행 환경</text>
+<rect x="1000" y="472" width="160" height="34" rx="17" fill="#7c3aed" opacity="0.12"/>
+<text class="" x="1016" y="495" text-anchor="start" font-size="15" font-weight="840" fill="#7c3aed" opacity="1">29개 · 26개 고유</text>
+<text class="" x="1000" y="544" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">oh-my-codex ·</text>
+<text class="" x="1000" y="564.74" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">hermes-agent</text>
+<text class="" x="1000" y="600" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">팀이 반복하나?</text>
+</g>
+<path d="M 1192 454 L 1244 454" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<path d="M 1244 454 L 1226 436 M 1244 454 L 1226 472" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+<g>
+<rect x="1264" y="306" width="222" height="292" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="1264" y="306" width="222" height="10" rx="5" fill="#16a34a"/>
+<text class="" x="1292" y="362" text-anchor="start" font-size="27" font-weight="880" fill="#16a34a" opacity="1">5월</text>
+<text class="" x="1292" y="409" text-anchor="start" font-size="26" font-weight="880" fill="#101828" opacity="1">맥락 인프라</text>
+<rect x="1292" y="438" width="160" height="34" rx="17" fill="#16a34a" opacity="0.12"/>
+<text class="" x="1308" y="461" text-anchor="start" font-size="15" font-weight="840" fill="#16a34a" opacity="1">65개 · 52개 고유</text>
+<text class="" x="1292" y="510" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">codegraph ·</text>
+<text class="" x="1292" y="530.74" text-anchor="start" font-size="17" font-weight="700" fill="#344054" opacity="1">agentmemory</text>
+<text class="" x="1292" y="566" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">무엇을 기억하나?</text>
+</g>
+
+<g>
+<rect x="250" y="738" width="1100" height="62" rx="31" fill="#101828"/>
+<text class="" x="800" y="778" text-anchor="middle" font-size="23" font-weight="850" fill="#ffffff" opacity="1">1~5월의 결론: 에이전트는 도구에서 업무 맥락을 가진 인프라로 이동</text>
+</g>
+  <text class="" x="72" y="846" text-anchor="start" font-size="16" font-weight="560" fill="#98a2b3" opacity="1">Source: local weekly-trend reports, 2026-01-07 ~ 2026-05-27</text>
+</svg>

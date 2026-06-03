@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f9f9a"/>
+      <stop offset="45%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: "Apple SD Gothic Neo", "Noto Sans CJK KR", "Pretendard", Arial, sans-serif; letter-spacing: 0; }
+    .mono { font-family: "SFMono-Regular", Consolas, monospace; }
+  </style>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="72" y="72" width="94" height="8" rx="4" fill="url(#accent)"/>
+  <text class="" x="72" y="132" text-anchor="start" font-size="46" font-weight="860" fill="#101828" opacity="1">에이전트 업무 인프라 맵</text>
+  <text class="" x="74" y="176" text-anchor="start" font-size="22" font-weight="560" fill="#667085" opacity="1">1~5월 반복 등장 저장소와 주요 분석 섹션을 기반으로 재구성</text>
+  <g>
+<path d="M 84 716 C 84 582, 84 432, 84 246" stroke="url(#accent)" stroke-width="8" stroke-linecap="round"/>
+<path d="M 84 246 L 66 278 M 84 246 L 102 278" stroke="#0f9f9a" stroke-width="8" stroke-linecap="round"/>
+<text class="" x="82" y="224" text-anchor="middle" font-size="17" font-weight="800" fill="#667085" opacity="1">업무 맥락</text>
+<text class="" x="82" y="746" text-anchor="middle" font-size="17" font-weight="800" fill="#667085" opacity="1">실행 기반</text>
+</g>
+<g>
+<rect x="142" y="238" width="1320" height="96" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="142" y="238" width="14" height="96" rx="7" fill="#16a34a"/>
+<text class="" x="198" y="279" text-anchor="start" font-size="29" font-weight="900" fill="#101828" opacity="1">코드·문서 이해</text>
+<text class="" x="198" y="310" text-anchor="start" font-size="19" font-weight="680" fill="#667085" opacity="1">그래프 색인 · 영향도 분석 · 온보딩 탐색</text>
+<rect x="860" y="256" width="236" height="31" rx="15.5" fill="#16a34a" opacity="0.12"/>
+<text class="" x="978" y="278" text-anchor="middle" font-size="15" font-weight="860" fill="#16a34a" opacity="1">codegraph</text>
+<rect x="1130" y="256" width="236" height="31" rx="15.5" fill="#16a34a" opacity="0.12"/>
+<text class="" x="1248" y="278" text-anchor="middle" font-size="15" font-weight="860" fill="#16a34a" opacity="1">Understand-Anything</text>
+<rect x="860" y="296" width="236" height="31" rx="15.5" fill="#16a34a" opacity="0.12"/>
+<text class="" x="978" y="318" text-anchor="middle" font-size="15" font-weight="860" fill="#16a34a" opacity="1">PageIndex</text>
+<rect x="1130" y="296" width="236" height="31" rx="15.5" fill="#16a34a" opacity="0.12"/>
+<text class="" x="1248" y="318" text-anchor="middle" font-size="15" font-weight="860" fill="#16a34a" opacity="1">react-doctor</text>
+</g>
+<g>
+<rect x="142" y="364" width="1320" height="96" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="142" y="364" width="14" height="96" rx="7" fill="#0f9f9a"/>
+<text class="" x="198" y="405" text-anchor="start" font-size="29" font-weight="900" fill="#101828" opacity="1">기억과 개인 맥락</text>
+<text class="" x="198" y="436" text-anchor="start" font-size="19" font-weight="680" fill="#667085" opacity="1">세션 지속성 · 개인 데이터 · 로컬 우선 메모리</text>
+<rect x="860" y="382" width="236" height="31" rx="15.5" fill="#0f9f9a" opacity="0.12"/>
+<text class="" x="978" y="404" text-anchor="middle" font-size="15" font-weight="860" fill="#0f9f9a" opacity="1">agentmemory</text>
+<rect x="1130" y="382" width="236" height="31" rx="15.5" fill="#0f9f9a" opacity="0.12"/>
+<text class="" x="1248" y="404" text-anchor="middle" font-size="15" font-weight="860" fill="#0f9f9a" opacity="1">openhuman</text>
+<rect x="860" y="422" width="236" height="31" rx="15.5" fill="#0f9f9a" opacity="0.12"/>
+<text class="" x="978" y="444" text-anchor="middle" font-size="15" font-weight="860" fill="#0f9f9a" opacity="1">claude-mem</text>
+<rect x="1130" y="422" width="236" height="31" rx="15.5" fill="#0f9f9a" opacity="0.12"/>
+<text class="" x="1248" y="444" text-anchor="middle" font-size="15" font-weight="860" fill="#0f9f9a" opacity="1">OpenViking</text>
+</g>
+<g>
+<rect x="142" y="490" width="1320" height="96" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="142" y="490" width="14" height="96" rx="7" fill="#2563eb"/>
+<text class="" x="198" y="531" text-anchor="start" font-size="29" font-weight="900" fill="#101828" opacity="1">실행 환경과 절차</text>
+<text class="" x="198" y="562" text-anchor="start" font-size="19" font-weight="680" fill="#667085" opacity="1">터미널 · 하네스 · 스킬 · 팀 워크플로</text>
+<rect x="860" y="508" width="236" height="31" rx="15.5" fill="#2563eb" opacity="0.12"/>
+<text class="" x="978" y="530" text-anchor="middle" font-size="15" font-weight="860" fill="#2563eb" opacity="1">warp</text>
+<rect x="1130" y="508" width="236" height="31" rx="15.5" fill="#2563eb" opacity="0.12"/>
+<text class="" x="1248" y="530" text-anchor="middle" font-size="15" font-weight="860" fill="#2563eb" opacity="1">DeepSeek-TUI</text>
+<rect x="860" y="548" width="236" height="31" rx="15.5" fill="#2563eb" opacity="0.12"/>
+<text class="" x="978" y="570" text-anchor="middle" font-size="15" font-weight="860" fill="#2563eb" opacity="1">superpowers</text>
+<rect x="1130" y="548" width="236" height="31" rx="15.5" fill="#2563eb" opacity="0.12"/>
+<text class="" x="1248" y="570" text-anchor="middle" font-size="15" font-weight="860" fill="#2563eb" opacity="1">mattpocock/skills</text>
+</g>
+<g>
+<rect x="142" y="616" width="1320" height="96" rx="24" fill="#ffffff" stroke="#d9e2ef" stroke-width="1.4" filter="url(#shadow)"/>
+<rect x="142" y="616" width="14" height="96" rx="7" fill="#f97316"/>
+<text class="" x="198" y="657" text-anchor="start" font-size="29" font-weight="900" fill="#101828" opacity="1">도메인 업무 패키지</text>
+<text class="" x="198" y="688" text-anchor="start" font-size="19" font-weight="680" fill="#667085" opacity="1">금융 · 연구 · 콘텐츠 · OSINT 자동화</text>
+<rect x="860" y="634" width="236" height="31" rx="15.5" fill="#f97316" opacity="0.12"/>
+<text class="" x="978" y="656" text-anchor="middle" font-size="15" font-weight="860" fill="#f97316" opacity="1">financial-services</text>
+<rect x="1130" y="634" width="236" height="31" rx="15.5" fill="#f97316" opacity="0.12"/>
+<text class="" x="1248" y="656" text-anchor="middle" font-size="15" font-weight="860" fill="#f97316" opacity="1">TradingAgents</text>
+<rect x="860" y="674" width="236" height="31" rx="15.5" fill="#f97316" opacity="0.12"/>
+<text class="" x="978" y="696" text-anchor="middle" font-size="15" font-weight="860" fill="#f97316" opacity="1">academic-research-skills</text>
+<rect x="1130" y="674" width="236" height="31" rx="15.5" fill="#f97316" opacity="0.12"/>
+<text class="" x="1248" y="696" text-anchor="middle" font-size="15" font-weight="860" fill="#f97316" opacity="1">ViMax</text>
+</g>
+<g>
+<rect x="310" y="742" width="980" height="58" rx="29" fill="#101828"/>
+<text class="" x="800" y="780" text-anchor="middle" font-size="24" font-weight="860" fill="#fff" opacity="1">5월 이후의 승부처: 에이전트가 “무엇을 알고 기억하는가”</text>
+</g>
+  <text class="" x="72" y="846" text-anchor="start" font-size="16" font-weight="560" fill="#98a2b3" opacity="1">Source: local weekly-trend reports, 2026-01-07 ~ 2026-05-27</text>
+</svg>

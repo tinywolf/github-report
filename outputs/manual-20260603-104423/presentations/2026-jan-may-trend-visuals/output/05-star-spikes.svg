@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0f9f9a"/>
+      <stop offset="45%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: "Apple SD Gothic Neo", "Noto Sans CJK KR", "Pretendard", Arial, sans-serif; letter-spacing: 0; }
+    .mono { font-family: "SFMono-Regular", Consolas, monospace; }
+  </style>
+  <rect width="1600" height="900" fill="#f8fafc"/>
+  <rect x="72" y="72" width="94" height="8" rx="4" fill="url(#accent)"/>
+  <text class="" x="72" y="132" text-anchor="start" font-size="46" font-weight="860" fill="#101828" opacity="1">주간 스타 급등 Top 15</text>
+  <text class="" x="74" y="176" text-anchor="start" font-size="22" font-weight="560" fill="#667085" opacity="1">최대 이상치 openclaw 이후, 5월에는 스킬·터미널·코드 이해 도구가 상위권을 재편</text>
+  <line x1="610" y1="198" x2="610" y2="790" stroke="#e4e7ec" stroke-width="1.4"/>
+<text class="" x="610" y="820" text-anchor="middle" font-size="14" font-weight="700" fill="#667085" opacity="1">0</text>
+<line x1="788.3849634528367" y1="198" x2="788.3849634528367" y2="790" stroke="#e4e7ec" stroke-width="1.4"/>
+<text class="" x="788.3849634528367" y="820" text-anchor="middle" font-size="14" font-weight="700" fill="#667085" opacity="1">20k</text>
+<line x1="966.7699269056735" y1="198" x2="966.7699269056735" y2="790" stroke="#e4e7ec" stroke-width="1.4"/>
+<text class="" x="966.7699269056735" y="820" text-anchor="middle" font-size="14" font-weight="700" fill="#667085" opacity="1">40k</text>
+<line x1="1145.1548903585103" y1="198" x2="1145.1548903585103" y2="790" stroke="#e4e7ec" stroke-width="1.4"/>
+<text class="" x="1145.1548903585103" y="820" text-anchor="middle" font-size="14" font-weight="700" fill="#667085" opacity="1">60k</text>
+<line x1="1323.539853811347" y1="198" x2="1323.539853811347" y2="790" stroke="#e4e7ec" stroke-width="1.4"/>
+<text class="" x="1323.539853811347" y="820" text-anchor="middle" font-size="14" font-weight="700" fill="#667085" opacity="1">80k</text>
+<line x1="1430.5708318830489" y1="198" x2="1430.5708318830489" y2="790" stroke="#e4e7ec" stroke-width="1.4"/>
+<text class="" x="1430.5708318830489" y="820" text-anchor="middle" font-size="14" font-weight="700" fill="#667085" opacity="1">92k</text>
+<g>
+<text class="" x="92" y="245" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">1</text>
+<text class="" x="128" y="245" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">openclaw/openclaw</text>
+<text class="" x="508" y="245" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">02-04</text>
+<rect x="610" y="220" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="220" width="820" height="27" rx="13.5" fill="#dc2626"/>
+<text class="" x="1446" y="241" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">91,936</text>
+</g>
+<g>
+<text class="" x="92" y="283" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">2</text>
+<text class="" x="128" y="283" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">mattpocock/skills</text>
+<text class="" x="508" y="283" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">05-06</text>
+<rect x="610" y="258" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="258" width="277.30834493560735" height="27" rx="13.5" fill="#f97316"/>
+<text class="" x="903.3083449356074" y="279" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">31,091</text>
+</g>
+<g>
+<text class="" x="92" y="321" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">3</text>
+<text class="" x="128" y="321" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">msitarzewski/agency-agents</text>
+<text class="" x="508" y="321" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">03-18</text>
+<rect x="610" y="296" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="296" width="260.085276714236" height="27" rx="13.5" fill="#f97316"/>
+<text class="" x="886.085276714236" y="317" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">29,160</text>
+</g>
+<g>
+<text class="" x="92" y="359" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">4</text>
+<text class="" x="128" y="359" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">warpdotdev/warp</text>
+<text class="" x="508" y="359" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">05-06</text>
+<rect x="610" y="334" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="334" width="248.5972850678733" height="27" rx="13.5" fill="#f97316"/>
+<text class="" x="874.5972850678733" y="355" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">27,872</text>
+</g>
+<g>
+<text class="" x="92" y="397" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">5</text>
+<text class="" x="128" y="397" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">everything-claude-code</text>
+<text class="" x="508" y="397" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">03-25</text>
+<rect x="610" y="372" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="372" width="191.6746432300731" height="27" rx="13.5" fill="#f97316"/>
+<text class="" x="817.6746432300731" y="393" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">21,490</text>
+</g>
+<g>
+<text class="" x="92" y="435" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">6</text>
+<text class="" x="128" y="435" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">colbymchenry/codegraph</text>
+<text class="" x="508" y="435" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">05-27</text>
+<rect x="610" y="410" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="410" width="189.18617298990603" height="27" rx="13.5" fill="#2563eb"/>
+<text class="" x="815.186172989906" y="431" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">21,211</text>
+</g>
+<g>
+<text class="" x="92" y="473" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">7</text>
+<text class="" x="128" y="473" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">Hmbown/DeepSeek-TUI</text>
+<text class="" x="508" y="473" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">05-13</text>
+<rect x="610" y="448" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="448" width="185.83253567699268" height="27" rx="13.5" fill="#2563eb"/>
+<text class="" x="811.8325356769926" y="469" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">20,835</text>
+</g>
+<g>
+<text class="" x="92" y="511" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">8</text>
+<text class="" x="128" y="511" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">everything-claude-code</text>
+<text class="" x="508" y="511" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">04-01</text>
+<rect x="610" y="486" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="486" width="177.21654194222066" height="27" rx="13.5" fill="#2563eb"/>
+<text class="" x="803.2165419422206" y="507" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">19,869</text>
+</g>
+<g>
+<text class="" x="92" y="549" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">9</text>
+<text class="" x="128" y="549" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">msitarzewski/agency-agents</text>
+<text class="" x="508" y="549" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">03-11</text>
+<rect x="610" y="524" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="524" width="177.10059171597632" height="27" rx="13.5" fill="#2563eb"/>
+<text class="" x="803.1005917159763" y="545" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">19,856</text>
+</g>
+<g>
+<text class="" x="92" y="587" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">10</text>
+<text class="" x="128" y="587" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">obra/superpowers</text>
+<text class="" x="508" y="587" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">03-25</text>
+<rect x="610" y="562" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="562" width="175.0045683954055" height="27" rx="13.5" fill="#2563eb"/>
+<text class="" x="801.0045683954055" y="583" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">19,621</text>
+</g>
+<g>
+<text class="" x="92" y="625" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">11</text>
+<text class="" x="128" y="625" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">Lum1104/Understand-Anything</text>
+<text class="" x="508" y="625" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">05-27</text>
+<rect x="610" y="600" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="600" width="171.1692916811695" height="27" rx="13.5" fill="#0f9f9a"/>
+<text class="" x="797.1692916811695" y="621" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">19,191</text>
+</g>
+<g>
+<text class="" x="92" y="663" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">12</text>
+<text class="" x="128" y="663" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">mattpocock/skills</text>
+<text class="" x="508" y="663" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">05-20</text>
+<rect x="610" y="638" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="638" width="169.80464671075532" height="27" rx="13.5" fill="#0f9f9a"/>
+<text class="" x="795.8046467107554" y="659" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">19,038</text>
+</g>
+<g>
+<text class="" x="92" y="701" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">13</text>
+<text class="" x="128" y="701" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">666ghj/MiroFish</text>
+<text class="" x="508" y="701" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">03-18</text>
+<rect x="610" y="676" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="676" width="167.01292203271842" height="27" rx="13.5" fill="#0f9f9a"/>
+<text class="" x="793.0129220327184" y="697" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">18,725</text>
+</g>
+<g>
+<text class="" x="92" y="739" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">14</text>
+<text class="" x="128" y="739" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">obra/superpowers</text>
+<text class="" x="508" y="739" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">04-01</text>
+<rect x="610" y="714" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="714" width="160.73377131917857" height="27" rx="13.5" fill="#0f9f9a"/>
+<text class="" x="786.7337713191786" y="735" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">18,021</text>
+</g>
+<g>
+<text class="" x="92" y="777" text-anchor="middle" font-size="16" font-weight="800" fill="#667085" opacity="1">15</text>
+<text class="" x="128" y="777" text-anchor="start" font-size="18" font-weight="820" fill="#101828" opacity="1">tinyhumansai/openhuman</text>
+<text class="" x="508" y="777" text-anchor="end" font-size="15" font-weight="720" fill="#667085" opacity="1">05-20</text>
+<rect x="610" y="752" width="820" height="27" rx="13.5" fill="#e4ebf5"/>
+<rect x="610" y="752" width="158.7001827358162" height="27" rx="13.5" fill="#0f9f9a"/>
+<text class="" x="784.7001827358163" y="773" text-anchor="start" font-size="17" font-weight="850" fill="#101828" opacity="1">17,793</text>
+</g>
+<g>
+<rect x="1024" y="92" width="432" height="86" rx="28" fill="#101828" stroke="#101828" stroke-width="1.4" filter="url(#shadow)"/>
+<text class="" x="1064" y="130" text-anchor="start" font-size="22" font-weight="860" fill="#fff" opacity="1">상위권은 세 갈래로 압축</text>
+<text class="" x="1064" y="160" text-anchor="start" font-size="17" font-weight="680" fill="#d0d5dd" opacity="1">스킬 · 터미널 에이전트 · 코드 이해 그래프</text>
+</g>
+  <text class="" x="72" y="846" text-anchor="start" font-size="16" font-weight="560" fill="#98a2b3" opacity="1">Source: local weekly-trend reports, 2026-01-07 ~ 2026-05-27</text>
+</svg>
