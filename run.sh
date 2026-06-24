@@ -15,7 +15,15 @@ npm outdated @openai/codex-sdk || codex_sdk_outdated_status=$?
 if [ "$codex_sdk_outdated_status" -eq 0 ]; then
   echo "✅ Codex SDK 업데이트 대상이 없습니다."
 else
-  echo "ℹ️ Codex SDK 최신 버전 확인 결과는 위 출력을 참고하세요. 리포트 생성은 계속 진행합니다."
+  echo "ℹ️ Codex SDK 최신 버전이 있습니다. 최신 버전으로 업데이트하시겠습니까? (Y/n)"
+  read -r update_codex_sdk_response < /dev/tty
+
+  if [[ -z "$update_codex_sdk_response" || "$update_codex_sdk_response" == "y" || "$update_codex_sdk_response" == "Y" ]]; then
+    npm install @openai/codex-sdk@latest
+    echo "✅ Codex SDK 업데이트가 완료되었습니다."
+  else
+    echo "ℹ️ Codex SDK 업데이트를 건너뛰고 리포트 생성을 계속합니다."
+  fi
 fi
 echo ""
 
@@ -66,11 +74,11 @@ docker run -it --rm \
 echo ""
 echo "------------------------------------------------------------"
 echo "리포트 생성이 완료되었습니다. 'weekly-trend/' 디렉토리에서 결과를 확인하세요."
-echo "계속해서 다음 단계(아지트에 발행)를 진행하시겠습니까? (y/N)"
+echo "계속해서 다음 단계(아지트에 발행)를 진행하시겠습니까? (Y/n)"
 echo "------------------------------------------------------------"
 read -r response < /dev/tty
 
-if [[ "$response" != "y" ]]; then
+if [[ -n "$response" && "$response" != "y" && "$response" != "Y" ]]; then
   echo "작업이 사용자에 의해 중단되었습니다."
   exit 0
 fi
