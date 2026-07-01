@@ -31,6 +31,35 @@ function formatDateInTimeZone(date, timeZone) {
 const todayStamp = formatDateInTimeZone(new Date(), reportTimeZone);
 const outputPath = path.join(outputDir, `${todayStamp}.md`);
 
+// 스트리밍 로그 제목만 이벤트 타입별로 색상 처리해 본문과 구분한다.
+const ansiReset = "\x1b[0m";
+const shouldUseAnsiColor = shouldUseLogColor();
+const logTitleColorsByType = {
+  agent_message: "\x1b[36m",
+  reasoning: "\x1b[35m",
+  command_execution: "\x1b[33m",
+  file_change: "\x1b[32m",
+  todo_list: "\x1b[34m",
+  token_usage: "\x1b[90m",
+};
+
+function shouldUseLogColor() {
+  if (process.env.NO_COLOR || process.env.FORCE_COLOR === "0") return false;
+  if (process.env.FORCE_COLOR) return true;
+  if (typeof process.stdout.hasColors === "function") return process.stdout.hasColors();
+
+  return Boolean(process.stdout.isTTY && process.env.TERM !== "dumb");
+}
+
+function formatLogTitle(type, title) {
+  if (!shouldUseAnsiColor) return title;
+
+  const titleColor = logTitleColorsByType[type];
+  if (!titleColor) return title;
+
+  return `${titleColor}${title}${ansiReset}`;
+}
+
 // 리포트 덮어쓰기를 제어: OVERWRITE_WEEKLY_TREND=1 필요.
 async function pathExists(targetPath) {
   try {
@@ -46,19 +75,21 @@ async function pathExists(targetPath) {
 const handleItemCompleted = (item) => {
   switch (item.type) {
     case "agent_message":
-      console.log(`Assistant: ${item.text}`);
+      console.log(`${formatLogTitle(item.type, "Assistant")}: ${item.text}`);
       break;
     case "reasoning":
-      console.log(`Reasoning: ${item.text}`);
+      console.log(`${formatLogTitle(item.type, "Reasoning")}: ${item.text}`);
       break;
     case "command_execution": {
       const exitText = item.exit_code !== undefined ? ` 종료 코드: ${item.exit_code}.` : "";
-      console.log(`명령어 실행: ${item.command} ${item.status}.${exitText}`);
+      console.log(
+        `${formatLogTitle(item.type, "명령어 실행")}: ${item.command} ${item.status}.${exitText}`,
+      );
       break;
     }
     case "file_change": {
       for (const change of item.changes) {
-        console.log(`파일 변경: ${change.kind} ${change.path}`);
+        console.log(`${formatLogTitle(item.type, "파일 변경")}: ${change.kind} ${change.path}`);
       }
       break;
     }
@@ -68,7 +99,7 @@ const handleItemCompleted = (item) => {
 const handleItemUpdated = (item) => {
   switch (item.type) {
     case "todo_list": {
-      console.log(`할 일 목록:`);
+      console.log(`${formatLogTitle(item.type, "할 일 목록")}:`);
       for (const todo of item.items) {
         console.log(`\t ${todo.completed ? "x" : " "} ${todo.text}`);
       }
@@ -88,7 +119,9 @@ const handleEvent = (event) => {
       break;
     case "turn.completed":
       console.log(
-        `토큰 사용량: 입력 ${event.usage.input_tokens}, 캐시된 입력 ${event.usage.cached_input_tokens}, 출력 ${event.usage.output_tokens}`,
+        `${formatLogTitle("token_usage", "토큰 사용량")}: 입력 ${event.usage.input_tokens}, 캐시된 입력 ${event.usage.cached_input_tokens}, 출력 ${
+          event.usage.output_tokens
+        }`,
       );
       break;
     case "turn.failed": {
