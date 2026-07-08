@@ -3,6 +3,10 @@ import { config as loadEnv } from "dotenv";
 import { readFile, stat } from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
+import {
+  formatCommandExecutionLog,
+  normalizeCommandLogLevel,
+} from "./command-execution-log.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +17,7 @@ const outputDir = path.join(repoRoot, "weekly-trend");
 
 const reportTimeZone = process.env.TZ || "UTC";
 const defaultCodexModel = "gpt-5.5";
+const commandLogLevel = normalizeCommandLogLevel(process.env.COMMAND_LOG_LEVEL);
 
 function formatDateInTimeZone(date, timeZone) {
   const parts = new Intl.DateTimeFormat("en", {
@@ -81,9 +86,12 @@ const handleItemCompleted = (item) => {
       console.log(`${formatLogTitle(item.type, "Reasoning")}: ${item.text}`);
       break;
     case "command_execution": {
-      const exitText = item.exit_code !== undefined ? ` 종료 코드: ${item.exit_code}.` : "";
       console.log(
-        `${formatLogTitle(item.type, "명령어 실행")}: ${item.command} ${item.status}.${exitText}`,
+        formatCommandExecutionLog(item, {
+          commandLogLevel,
+          shouldUseAnsiColor,
+          formatLogTitle,
+        }),
       );
       break;
     }
