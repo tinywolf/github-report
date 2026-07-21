@@ -68,7 +68,7 @@ docker run -it --rm \
   -e TZ="${TZ:-Asia/Seoul}" \
   -e CODEX_MODEL="${codex_model}" \
   -e CODEX_REASONING_EFFORT="${codex_reasoning_effort}" \
-  -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-1}" \
+  -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-Y}" \
   -v "$ROOT_DIR/weekly-trend:/app/weekly-trend" \
   github-report-generator
 

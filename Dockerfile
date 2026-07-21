@@ -25,7 +25,7 @@ RUN mkdir -p weekly-trend /root/.codex
 # 기본 환경 변수 설정 (런타임에 -e 옵션으로 덮어쓰기 권장)
 ENV CODEX_MODEL="gpt-5.5"
 ENV CODEX_REASONING_EFFORT=""
-ENV OVERWRITE_WEEKLY_TREND=0
+ENV OVERWRITE_WEEKLY_TREND=N
 
 # 주간 리포트 생성 스크립트를 기본 명령으로 설정합니다.
 CMD ["npm", "run", "generate:weekly-report"]

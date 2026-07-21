@@ -1,6 +1,6 @@
 import { Codex } from "@openai/codex-sdk";
 import { config as loadEnv } from "dotenv";
-import { readFile, stat } from "fs/promises";
+import { readFile, stat, unlink, writeFile } from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import {
@@ -65,7 +65,6 @@ function formatLogTitle(type, title) {
   return `${titleColor}${title}${ansiReset}`;
 }
 
-// 리포트 덮어쓰기를 제어: OVERWRITE_WEEKLY_TREND=1 필요.
 async function pathExists(targetPath) {
   try {
     await stat(targetPath);
@@ -74,6 +73,29 @@ async function pathExists(targetPath) {
     if (error && error.code === "ENOENT") return false;
     throw error;
   }
+}
+
+function parseOverwriteWeeklyTrend(value) {
+  const normalizedValue = value?.trim().toLowerCase();
+  if (!normalizedValue || ["n", "no"].includes(normalizedValue)) return false;
+  if (["y", "yes"].includes(normalizedValue)) return true;
+
+  throw new Error(
+    "OVERWRITE_WEEKLY_TREND는 Y/N, y/n 또는 yes/no 형식으로 설정해야 합니다.",
+  );
+}
+
+// 모델이 작성한 본문과 실행 환경에서 확정된 생성 정보를 분리해 메타데이터의 정확성을 보장한다.
+async function addReportGenerationInfo(targetPath, model, reasoningEffort) {
+  const reportContent = await readFile(targetPath, "utf8");
+  const generationInfo = [
+    "```",
+    `생성 모델: ${model}`,
+    `추론 수준: ${reasoningEffort || "모델 기본값"}`,
+    "```",
+  ].join("\n");
+
+  await writeFile(targetPath, `${reportContent.trimEnd()}\n\n${generationInfo}\n`, "utf8");
 }
 
 // 스트리밍 이벤트 처리를 위한 핸들러 함수들
@@ -142,10 +164,18 @@ const handleEvent = (event) => {
 };
 
 async function main() {
-  if ((await pathExists(outputPath)) && !process.env.OVERWRITE_WEEKLY_TREND) {
-    throw new Error(
-      `이미 ${outputPath} 파일이 존재합니다. 덮어쓰려면 OVERWRITE_WEEKLY_TREND=1 환경 변수를 설정하세요.`,
-    );
+  const shouldOverwriteWeeklyTrend = parseOverwriteWeeklyTrend(
+    process.env.OVERWRITE_WEEKLY_TREND,
+  );
+  if (await pathExists(outputPath)) {
+    if (!shouldOverwriteWeeklyTrend) {
+      throw new Error(
+        `이미 ${outputPath} 파일이 존재합니다. 덮어쓰려면 OVERWRITE_WEEKLY_TREND=Y 환경 변수를 설정하세요.`,
+      );
+    }
+
+    await unlink(outputPath);
+    console.log(`♻️ 기존 리포트 삭제: ${outputPath}`);
   }
 
   const apiKey = process.env.OPENAI_API_KEY?.trim();
@@ -184,6 +214,12 @@ async function main() {
   for await (const event of events) {
     handleEvent(event);
   }
+
+  if (!(await pathExists(outputPath))) {
+    throw new Error(`리포트 생성이 완료되었지만 ${outputPath} 파일을 찾을 수 없습니다.`);
+  }
+  await addReportGenerationInfo(outputPath, codexModel, codexReasoningEffort);
+  console.log(`📝 리포트 생성 정보 추가: ${outputPath}`);
 
   console.log("✅ 리포트 생성이 완료되었습니다.");
 }

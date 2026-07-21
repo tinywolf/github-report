@@ -28,7 +28,7 @@ docker run -it --rm \
 ```
 
 - 결과는 `weekly-trend/yyyy-mm-dd.md`로 생성됩니다.
-- 덮어쓰려면 `OVERWRITE_WEEKLY_TREND=1` 환경 변수를 추가하세요.
+- 덮어쓰려면 `OVERWRITE_WEEKLY_TREND=Y` 환경 변수를 추가하세요. `Y`/`N`, `y`/`n`, `yes`/`no` 형식을 지원합니다.
 
 ## run.sh 로 전체 파이프라인 실행
 로컬에서 전체 프로세스(생성 → 검토 → 전송)를 한 번에 실행합니다. 내부적으로 Docker를 사용하여 리포트를 생성합니다.
