@@ -150,6 +150,7 @@ async function main() {
 
   const apiKey = process.env.OPENAI_API_KEY?.trim();
   const codexModel = process.env.CODEX_MODEL?.trim() || defaultCodexModel;
+  const codexReasoningEffort = process.env.CODEX_REASONING_EFFORT?.trim();
   if (apiKey) {
     console.log(`📡 API Key 로드됨: ${apiKey.slice(0, 4)}***`);
   } else {
@@ -158,6 +159,7 @@ async function main() {
     console.log("🔐 OPENAI_API_KEY가 없어 기본 Codex 인증 정보(~/.codex/auth.json)를 사용합니다.");
   }
   console.log(`🧠 Codex 모델: ${codexModel}`);
+  console.log(`🧠 Codex 추론 수준: ${codexReasoningEffort || "모델 기본값"}`);
 
   // Codex를 저장소 루트 컨텍스트에서 실행해 git 레포 기반 작업이 가능하도록 한다.
   const codex = apiKey ? new Codex({ apiKey }) : new Codex();
@@ -165,6 +167,7 @@ async function main() {
   // 어떻게: 지원 모델을 명시하고, 필요 시 CODEX_MODEL 환경 변수로 런타임에 교체한다.
   const thread = codex.startThread({
     model: codexModel,
+    ...(codexReasoningEffort ? { modelReasoningEffort: codexReasoningEffort } : {}),
     workingDirectory: repoRoot,
     // 네트워크 접근과 파일 쓰기가 필요한 스킬이므로 sandbox를 풀고 네트워크를 허용한다.
     sandboxMode: "danger-full-access",

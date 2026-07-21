@@ -56,7 +56,9 @@ else
 fi
 
 codex_model="${CODEX_MODEL:-gpt-5.5}"
+codex_reasoning_effort="${CODEX_REASONING_EFFORT:-}"
 echo "🧠 Codex 모델: ${codex_model}"
+echo "🧠 Codex 추론 수준: ${codex_reasoning_effort:-모델 기본값}"
 
 # 빌드 시 캐시를 활용하여 이미지를 준비합니다.
 docker build -t github-report-generator .
@@ -65,6 +67,7 @@ docker run -it --rm \
   "${docker_auth_args[@]}" \
   -e TZ="${TZ:-Asia/Seoul}" \
   -e CODEX_MODEL="${codex_model}" \
+  -e CODEX_REASONING_EFFORT="${codex_reasoning_effort}" \
   -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-1}" \
   -v "$ROOT_DIR/weekly-trend:/app/weekly-trend" \
   github-report-generator
