@@ -34,6 +34,7 @@ description: 깃헙 주간 트렌드 페이지의 내용을 분석하고, 리포
 - assets/report-format.md 파일을 참고하여 리포트를 작성하세요.
 - 다음 제한된 문법만 사용해야 합니다.
   - H1 (#), H2 (##)
-  - bold (*), italic (_)
+  - bold (**text**), italic (*text* 또는 _text_)
   - hyperlink ([text](url))
   - 인용 (>), 코드 블록(```)
+  - 줄바꿈(줄 끝 공백 2개)
