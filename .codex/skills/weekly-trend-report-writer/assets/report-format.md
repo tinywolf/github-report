@@ -6,7 +6,6 @@
 개요 3  
 
 ## 2. 리포지토리
-
 > [repo-1](https://github.com/repo-1)  
 > 언어: repo-1 의 대표 언어 | 누적 ★: repo-1 의 누적 스타 | 주간 ★: repo-1 의 주간 스타  
 > 요약: repo-1 의 요약 내용
@@ -20,7 +19,6 @@
 > 요약: repo-3 의 요약 내용
 
 ## 3. 주요 리포지토리 분석
-
 > _[repo-1](https://github.com/repo-1)_  
 > repo-1 에 대한 설명
 >  
