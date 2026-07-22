@@ -21,14 +21,11 @@
 
 ## 3. 주요 리포지토리 분석
 
-_[repo-1](https://github.com/repo-1)_
-
-repo-1 에 대한 설명
-
-_[repo-2](https://github.com/repo-2)_
-
-repo-2 에 대한 설명
-
-_[repo-3](https://github.com/repo-3)_
-
-repo-3 에 대한 설명
+> _[repo-1](https://github.com/repo-1)_  
+> repo-1 에 대한 설명
+>  
+> _[repo-2](https://github.com/repo-2)_  
+> repo-2 에 대한 설명
+>  
+> _[repo-3](https://github.com/repo-3)_  
+> repo-3 에 대한 설명
