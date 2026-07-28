@@ -7,10 +7,10 @@
 - 고유 저장소 수: 166
 - 주간 스타 합계: 1,264,219
 
-## 파일
-- 01-narrative-evolution.svg
-- 02-monthly-pulse.svg
-- 03-language-shift.svg
-- 04-repeat-heatmap.svg
-- 05-star-spikes.svg
-- 06-agent-infra-map.svg
+## 자료
+![01-narrative-evolution.svg](01-narrative-evolution.svg)
+![02-monthly-pulse.svg](02-monthly-pulse.svg)
+![03-language-shift.svg](03-language-shift.svg)
+![04-repeat-heatmap.svg](04-repeat-heatmap.svg)
+![05-star-spikes.svg](05-star-spikes.svg)
+![06-agent-infra-map.svg](06-agent-infra-map.svg)
