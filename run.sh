@@ -55,7 +55,7 @@ else
   docker_auth_args+=(-v "$local_codex_auth_file:/root/.codex/auth.json:ro")
 fi
 
-codex_model="${CODEX_MODEL:-gpt-5.5}"
+codex_model="${CODEX_MODEL:-gpt-5.6-terra}"
 codex_reasoning_effort="${CODEX_REASONING_EFFORT:-}"
 echo "🧠 Codex 모델: ${codex_model}"
 echo "🧠 Codex 추론 수준: ${codex_reasoning_effort:-모델 기본값}"

@@ -34,7 +34,7 @@ docker run -it --rm \
 로컬에서 전체 프로세스(생성 → 검토 → 전송)를 한 번에 실행합니다. 내부적으로 Docker를 사용하여 리포트를 생성합니다.
 - 필수: Node.js 18+, Codex CLI, `AGIT_WEBHOOK`(Agit 웹훅) 환경 변수.
 - 인증: `.env`에 `OPENAI_API_KEY`를 넣거나, 키가 없으면 `run.sh`가 자동으로 `~/.codex/auth.json` 파일만 읽기 전용으로 마운트해 실행합니다.
-- 모델: 기본값은 `gpt-5.5`입니다. 다른 모델을 사용하려면 `.env` 또는 실행 환경에 `CODEX_MODEL`을 지정하세요.
+- 모델: 기본값은 `gpt-5.6-terra`입니다. 다른 모델을 사용하려면 `.env` 또는 실행 환경에 `CODEX_MODEL`을 지정하세요.
 - 추론 수준: 기본적으로 선택한 모델의 기본값을 사용합니다. 명시하려면 `.env` 또는 실행 환경에 `CODEX_REASONING_EFFORT`를 지정하세요(예: `medium`).
 - 실행:
 ```bash

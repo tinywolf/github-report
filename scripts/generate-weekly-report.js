@@ -16,7 +16,8 @@ loadEnv({ path: path.join(repoRoot, ".env") });
 const outputDir = path.join(repoRoot, "weekly-trend");
 
 const reportTimeZone = process.env.TZ || "UTC";
-const defaultCodexModel = "gpt-5.5";
+// 주간 리포트 스킬의 반복 실행 비용과 작업 품질을 함께 고려해 균형형 모델을 기본으로 사용한다.
+const defaultCodexModel = "gpt-5.6-terra";
 const commandLogLevel = normalizeCommandLogLevel(process.env.COMMAND_LOG_LEVEL);
 
 function formatDateInTimeZone(date, timeZone) {
