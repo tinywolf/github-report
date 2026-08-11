@@ -200,6 +200,8 @@ async function main() {
     model: codexModel,
     ...(codexReasoningEffort ? { modelReasoningEffort: codexReasoningEffort } : {}),
     workingDirectory: repoRoot,
+    // 비대화형 자동화에서는 승인 대기 대신 허용된 권한 안에서 실행하거나 실패한다.
+    approvalPolicy: "never",
     // 네트워크 접근과 파일 쓰기가 필요한 스킬이므로 sandbox를 풀고 네트워크를 허용한다.
     sandboxMode: "danger-full-access",
     networkAccessEnabled: true,
