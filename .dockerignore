@@ -4,3 +4,4 @@ node_modules
 .idea
 .env
 weekly-trend/*
+weekly-trend-draft/*

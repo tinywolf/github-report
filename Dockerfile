@@ -19,8 +19,8 @@ RUN npm ci --include=optional
 # 전체 소스 코드를 복사합니다.
 COPY . .
 
-# 리포트 출력 디렉토리와 인증 파일 마운트 경로를 보장합니다.
-RUN mkdir -p weekly-trend /root/.codex
+# 신규 리포트 출력 디렉토리와 인증 파일 마운트 경로를 보장합니다.
+RUN mkdir -p weekly-trend-draft /root/.codex
 
 # 기본 환경 변수 설정 (런타임에 -e 옵션으로 덮어쓰기 권장)
 ENV CODEX_MODEL="gpt-5.6-terra"

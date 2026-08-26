@@ -63,20 +63,24 @@ echo "🧠 Codex 추론 수준: ${codex_reasoning_effort:-모델 기본값}"
 # 빌드 시 캐시를 활용하여 이미지를 준비합니다.
 docker build -t github-report-generator .
 
+# 과거 리포트 보관소와 분리된 신규 리포트 출력 디렉토리만 컨테이너에 노출합니다.
+report_output_dir="$ROOT_DIR/weekly-trend-draft"
+mkdir -p "$report_output_dir"
+
 docker run -it --rm \
   "${docker_auth_args[@]}" \
   -e TZ="${TZ:-Asia/Seoul}" \
   -e CODEX_MODEL="${codex_model}" \
   -e CODEX_REASONING_EFFORT="${codex_reasoning_effort}" \
   -e OVERWRITE_WEEKLY_TREND="${OVERWRITE_WEEKLY_TREND:-Y}" \
-  -v "$ROOT_DIR/weekly-trend:/app/weekly-trend" \
+  -v "$report_output_dir:/app/weekly-trend-draft" \
   github-report-generator
 
 # 왜: 생성된 리포트 내용을 사용자가 직접 검토한 뒤 배포(전송) 여부를 결정하기 위함.
 # 어떻게: read 명령어로 사용자 입력을 받아 'y'인 경우에만 다음 스크립트를 실행한다.
 echo ""
 echo "------------------------------------------------------------"
-echo "리포트 생성이 완료되었습니다. 'weekly-trend/' 디렉토리에서 결과를 확인하세요."
+echo "리포트 생성이 완료되었습니다. 'weekly-trend-draft/' 디렉토리에서 결과를 확인하세요."
 echo "계속해서 다음 단계(아지트에 발행)를 진행하시겠습니까? (Y/n)"
 echo "------------------------------------------------------------"
 read -r response < /dev/tty

@@ -1,6 +1,6 @@
 import { Codex } from "@openai/codex-sdk";
 import { config as loadEnv } from "dotenv";
-import { readFile, stat, unlink, writeFile } from "fs/promises";
+import { mkdir, readFile, stat, unlink, writeFile } from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 import {
@@ -13,7 +13,7 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, "..");
 // .env 파일을 먼저 불러 Codex 실행에 필요한 키를 환경 변수로 주입한다.
 loadEnv({ path: path.join(repoRoot, ".env") });
-const outputDir = path.join(repoRoot, "weekly-trend");
+const outputDir = path.join(repoRoot, "weekly-trend-draft");
 
 const reportTimeZone = process.env.TZ || "UTC";
 // 주간 리포트 스킬의 반복 실행 비용과 작업 품질을 함께 고려해 균형형 모델을 기본으로 사용한다.
@@ -165,6 +165,9 @@ const handleEvent = (event) => {
 };
 
 async function main() {
+  // 신규 체크아웃이나 직접 실행에서도 과거 리포트 보관소와 분리된 출력 경로를 보장한다.
+  await mkdir(outputDir, { recursive: true });
+
   const shouldOverwriteWeeklyTrend = parseOverwriteWeeklyTrend(
     process.env.OVERWRITE_WEEKLY_TREND,
   );

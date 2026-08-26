@@ -17,7 +17,7 @@ fi
 
 : "${AGIT_WEBHOOK:?AGIT_WEBHOOK 이 필요합니다. .env 또는 환경 변수로 설정하세요.}"
 
-REPORT_PATH="${REPORT_PATH:-weekly-trend/$(date +%Y-%m-%d).md}"
+REPORT_PATH="${REPORT_PATH:-weekly-trend-draft/$(date +%Y-%m-%d).md}"
 
 if [ -z "${AGIT_WEBHOOK:-}" ]; then
   echo "Error: AGIT_WEBHOOK environment variable is not set."
