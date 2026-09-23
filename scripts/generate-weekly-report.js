@@ -8,6 +8,7 @@ import {
   formatCommandExecutionLog,
   normalizeCommandLogLevel,
 } from "./command-execution-log.js";
+import { readCodexSessionUsage } from "./codex-session.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -17,8 +18,6 @@ loadEnv({ path: path.join(repoRoot, ".env") });
 const outputDir = path.join(repoRoot, "weekly-trend-draft");
 
 const reportTimeZone = process.env.TZ || "UTC";
-// 주간 리포트 스킬의 반복 실행 비용과 작업 품질을 함께 고려해 균형형 모델을 기본으로 사용한다.
-const defaultCodexModel = "gpt-5.6-terra";
 const commandLogLevel = normalizeCommandLogLevel(process.env.COMMAND_LOG_LEVEL);
 
 function formatDateInTimeZone(date, timeZone) {
@@ -113,17 +112,40 @@ function parseOverwriteWeeklyTrend(value) {
   );
 }
 
-// 모델이 작성한 본문과 실행 환경에서 확정된 생성 정보를 분리해 메타데이터의 정확성을 보장한다.
-async function addReportGenerationInfo(targetPath, model, reasoningEffort) {
+// 모델과 추론 수준은 리포트에 기록하고 ccusage 사용량은 콘솔에 출력한다.
+async function addReportGenerationInfo(targetPath, threadId, reasoningEffort) {
   const reportContent = await readFile(targetPath, "utf8");
+  let usage;
+  try {
+    usage = await readCodexSessionUsage(threadId);
+  } catch (error) {
+    console.warn(`⚠️ ccusage에서 생성 정보를 확인하지 못했습니다: ${error.message}`);
+  }
   const generationInfo = [
     "```",
-    `생성 모델: ${model}`,
+    `생성 모델: ${usage?.models.join(", ") ?? "확인 불가"}`,
     `추론 수준: ${reasoningEffort || "모델 기본값"}`,
     "```",
   ].join("\n");
 
   await writeFile(targetPath, `${reportContent.trimEnd()}\n\n${generationInfo}\n`, "utf8");
+
+  const formatTokenCount = (value) =>
+    Number.isSafeInteger(value) && value >= 0 ? value.toLocaleString("en-US") : "확인 불가";
+  const costUSD = Number.isFinite(usage?.costUSD)
+    ? `$${usage.costUSD.toFixed(4)}`
+    : "확인 불가";
+  console.log(
+    [
+      "📊 Codex 세션 사용량:",
+      `  입력 토큰: ${formatTokenCount(usage?.inputTokens)}`,
+      `  캐시된 입력 토큰: ${formatTokenCount(usage?.cachedInputTokens)}`,
+      `  출력 토큰: ${formatTokenCount(usage?.outputTokens)}`,
+      `  추론 출력 토큰: ${formatTokenCount(usage?.reasoningOutputTokens)}`,
+      `  전체 토큰: ${formatTokenCount(usage?.totalTokens)}`,
+      `  비용 (USD): ${costUSD}`,
+    ].join("\n"),
+  );
 }
 
 // 스트리밍 이벤트 처리를 위한 핸들러 함수들
@@ -320,7 +342,7 @@ async function main() {
   }
 
   const apiKey = process.env.OPENAI_API_KEY?.trim();
-  const codexModel = process.env.CODEX_MODEL?.trim() || defaultCodexModel;
+  const codexModel = process.env.CODEX_MODEL?.trim();
   const codexReasoningEffort = process.env.CODEX_REASONING_EFFORT?.trim();
   if (apiKey) {
     console.log(`📡 API Key 로드됨: ${apiKey.slice(0, 4)}***`);
@@ -329,15 +351,14 @@ async function main() {
     // 어떻게: SDK 기본 인증 탐색 경로(~/.codex/auth.json 등)를 사용하도록 new Codex()로 초기화한다.
     console.log("🔐 OPENAI_API_KEY가 없어 기본 Codex 인증 정보(~/.codex/auth.json)를 사용합니다.");
   }
-  console.log(`🧠 Codex 모델: ${codexModel}`);
+  console.log(`🧠 Codex 모델: ${codexModel || "SDK 기본값"}`);
   console.log(`🧠 Codex 추론 수준: ${codexReasoningEffort || "모델 기본값"}`);
 
   // Codex를 저장소 루트 컨텍스트에서 실행해 git 레포 기반 작업이 가능하도록 한다.
   const codex = apiKey ? new Codex({ apiKey }) : new Codex();
-  // 왜: SDK/CLI 기본 모델이 계정에서 지원되지 않는 모델로 바뀌면 자동화가 실패한다.
-  // 어떻게: 지원 모델을 명시하고, 필요 시 CODEX_MODEL 환경 변수로 런타임에 교체한다.
+  // CODEX_MODEL을 지정한 경우에만 모델을 전달하고, 없으면 Codex SDK의 선택을 따른다.
   const thread = codex.startThread({
-    model: codexModel,
+    ...(codexModel ? { model: codexModel } : {}),
     ...(codexReasoningEffort ? { modelReasoningEffort: codexReasoningEffort } : {}),
     workingDirectory: repoRoot,
     // 비대화형 자동화에서는 승인 대기 대신 허용된 권한 안에서 실행하거나 실패한다.
@@ -366,7 +387,7 @@ async function main() {
   }
 
   await validateGeneratedReport();
-  await addReportGenerationInfo(outputPath, codexModel, codexReasoningEffort);
+  await addReportGenerationInfo(outputPath, thread.id, codexReasoningEffort);
   console.log(`📝 리포트 생성 정보 추가: ${outputPath}`);
 
   console.log("✅ 리포트 생성이 완료되었습니다.");

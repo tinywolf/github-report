@@ -23,7 +23,6 @@ COPY . .
 RUN mkdir -p weekly-trend-draft /root/.codex
 
 # 기본 환경 변수 설정 (런타임에 -e 옵션으로 덮어쓰기 권장)
-ENV CODEX_MODEL="gpt-5.6-terra"
 ENV CODEX_REASONING_EFFORT=""
 ENV OVERWRITE_WEEKLY_TREND=N
 
