@@ -7,7 +7,7 @@
   "scripts": {
     "generate:weekly-report": "node scripts/generate-weekly-report.js",
     "validate:weekly-report": "node scripts/validate-weekly-report.js",
-    "test": "node --test scripts/*.test.js"
+    "test": "node --test test/*.test.js"
   },
   "dependencies": {
     "@openai/codex-sdk": "^0.156.1",

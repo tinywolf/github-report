@@ -3,7 +3,7 @@ import test from "node:test";
 import {
   parseTrendingRepositories,
   validateReportAgainstSources,
-} from "./validate-weekly-report.js";
+} from "../scripts/validate-weekly-report.js";
 
 function trendingHtml(repositories) {
   return repositories

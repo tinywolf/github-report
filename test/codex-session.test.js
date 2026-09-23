@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { extractCodexSessionUsage } from "./codex-session.js";
+import { extractCodexSessionUsage } from "../src/codex-session.js";
 
 test("ccusage 결과에서 현재 스레드의 모델과 사용량만 추출한다", () => {
   const report = {

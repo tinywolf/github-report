@@ -7,8 +7,8 @@ import { fileURLToPath } from "url";
 import {
   formatCommandExecutionLog,
   normalizeCommandLogLevel,
-} from "./command-execution-log.js";
-import { readCodexSessionUsage } from "./codex-session.js";
+} from "../src/command-execution-log.js";
+import { readCodexSessionUsage } from "../src/codex-session.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
