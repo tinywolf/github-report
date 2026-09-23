@@ -1,4 +1,5 @@
 import { Codex } from "@openai/codex-sdk";
+import { spawn } from "child_process";
 import { config as loadEnv } from "dotenv";
 import { mkdir, readFile, stat, unlink, writeFile } from "fs/promises";
 import path from "path";
@@ -36,6 +37,7 @@ function formatDateInTimeZone(date, timeZone) {
 // 어떻게: 실행 환경에서 주어진 TZ를 명시적으로 사용해 리포트 날짜 스탬프를 만든다.
 const todayStamp = formatDateInTimeZone(new Date(), reportTimeZone);
 const outputPath = path.join(outputDir, `${todayStamp}.md`);
+const sourcePath = path.join(outputDir, `${todayStamp}.source.html`);
 
 // 스트리밍 로그 제목만 이벤트 타입별로 색상 처리해 본문과 구분한다.
 const ansiReset = "\x1b[0m";
@@ -75,6 +77,27 @@ async function pathExists(targetPath) {
     if (error && error.code === "ENOENT") return false;
     throw error;
   }
+}
+
+async function removeFileIfExists(targetPath) {
+  if (await pathExists(targetPath)) await unlink(targetPath);
+}
+
+// 모델의 자체 검증 결과를 신뢰하지 않고 호스트 프로세스가 종료 코드로 최종 판정한다.
+async function validateGeneratedReport() {
+  const validatorPath = path.join(__dirname, "validate-weekly-report.js");
+  await new Promise((resolve, reject) => {
+    const validator = spawn(
+      process.execPath,
+      [validatorPath, "--report", outputPath, "--source", sourcePath],
+      { stdio: "inherit" },
+    );
+    validator.once("error", reject);
+    validator.once("exit", (exitCode) => {
+      if (exitCode === 0) resolve();
+      else reject(new Error(`리포트 검증기가 종료 코드 ${exitCode}로 실패했습니다.`));
+    });
+  });
 }
 
 function parseOverwriteWeeklyTrend(value) {
@@ -175,15 +198,18 @@ async function main() {
   const shouldOverwriteWeeklyTrend = parseOverwriteWeeklyTrend(
     process.env.OVERWRITE_WEEKLY_TREND,
   );
-  if (await pathExists(outputPath)) {
+  const outputExists = await pathExists(outputPath);
+  const sourceExists = await pathExists(sourcePath);
+  if (outputExists || sourceExists) {
     if (!shouldOverwriteWeeklyTrend) {
       throw new Error(
-        `이미 ${outputPath} 파일이 존재합니다. 덮어쓰려면 OVERWRITE_WEEKLY_TREND=Y 환경 변수를 설정하세요.`,
+        "오늘 날짜의 리포트 또는 수집 원본이 이미 존재합니다. 덮어쓰려면 OVERWRITE_WEEKLY_TREND=Y 환경 변수를 설정하세요.",
       );
     }
 
-    await unlink(outputPath);
-    console.log(`♻️ 기존 리포트 삭제: ${outputPath}`);
+    await removeFileIfExists(outputPath);
+    await removeFileIfExists(sourcePath);
+    console.log(`♻️ 기존 리포트와 수집 원본 삭제: ${todayStamp}`);
   }
 
   const apiKey = process.env.OPENAI_API_KEY?.trim();
@@ -228,6 +254,11 @@ async function main() {
   if (!(await pathExists(outputPath))) {
     throw new Error(`리포트 생성이 완료되었지만 ${outputPath} 파일을 찾을 수 없습니다.`);
   }
+  if (!(await pathExists(sourcePath))) {
+    throw new Error(`원본 수집이 완료되었지만 ${sourcePath} 파일을 찾을 수 없습니다.`);
+  }
+
+  await validateGeneratedReport();
   await addReportGenerationInfo(outputPath, codexModel, codexReasoningEffort);
   console.log(`📝 리포트 생성 정보 추가: ${outputPath}`);
 

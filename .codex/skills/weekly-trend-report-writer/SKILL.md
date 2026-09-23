@@ -6,14 +6,14 @@ description: 깃헙 주간 트렌드 페이지의 내용을 분석하고, 리포
 # 깃헙 주간 트렌드 리포트
 
 ## 작업 흐름
-1. 원본 데이터 수집 규칙에 따라 깃헙 주간 트렌드 페이지(https://github.com/trending?since=weekly)를 직접 조회.
+1. 원본 데이터 수집 규칙에 따라 깃헙 주간 트렌드 페이지(https://github.com/trending?since=weekly)를 직접 조회하고, 응답 본문을 `weekly-trend-draft/yyyy-mm-dd.source.html`에 변경 없이 저장.
 2. 깃헙 주간 트렌드 페이지의 내용을 분석.
 3. 리포트 작성 규칙과 형식 제약 사항을 지켜서 리포트를 작성.
 4. `weekly-trend-draft` 디렉토리가 없으면 생성하고, 리포팅 결과를 해당 디렉토리에 `yyyy-mm-dd.md` 파일로 저장. 파일명 내 `yyyy-mm-dd` 는 실행 환경의 `date +%Y-%m-%d` 명령 결과를 사용.
    - 리포트 제목 등 본문에 날짜를 표기할 때도 같은 명령 결과를 사용.
-5. 리포트 결과 파일이 형식 제약 사항을 위반하는지 검증.
-6. 형식 제약 사항을 위반하는 경우, 형식 제약 사항을 지켜서 리포트를 수정.
-7. 작업 중 생성한 임시 파일 삭제.
+5. `node scripts/validate-weekly-report.js --report weekly-trend-draft/yyyy-mm-dd.md --source weekly-trend-draft/yyyy-mm-dd.source.html`을 실행해 리포트 형식, 수집 원본과의 정합성, 검증 시점의 최신 저장소 목록을 검증.
+6. 검증에 실패하면 오류 원인에 따라 원본을 다시 수집하거나 리포트를 수정한 뒤, 검증을 다시 실행.
+7. 검증이 통과하면 `.source.html`을 제외한 작업 중 생성한 임시 파일 삭제. `.source.html`은 실행기의 최종 검증을 위해 보존.
 
 ## 원본 데이터 수집
 - 깃헙 주간 트렌드 페이지의 원본 URL을 직접 조회하고, 요청 시점에 원본 서버가 제공하는 응답을 분석의 기준으로 사용하세요.
