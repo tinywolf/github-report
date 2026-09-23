@@ -43,6 +43,7 @@ const shouldUseAnsiColor = shouldUseLogColor();
 const logTitleColorsByType = {
   agent_message: "\x1b[36m",
   reasoning: "\x1b[35m",
+  web_search: "\x1b[94m",
   command_execution: "\x1b[33m",
   file_change: "\x1b[32m",
   todo_list: "\x1b[34m",
@@ -107,6 +108,9 @@ const handleItemCompleted = (item) => {
       break;
     case "reasoning":
       console.log(`${formatLogTitle(item.type, "Reasoning")}: ${item.text}`);
+      break;
+    case "web_search":
+      console.log(`${formatLogTitle(item.type, "웹 검색")}: ${item.query}`);
       break;
     case "command_execution": {
       console.log(
