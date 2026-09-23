@@ -64,7 +64,7 @@ node scripts/validate-weekly-report.js \
 로컬에서 전체 프로세스(생성 → 검증 → 사용자 검토 → 전송)를 한 번에 실행합니다. 내부적으로 Docker를 사용하여 리포트를 생성합니다.
 - 필수: Node.js 22, Codex CLI, `AGIT_WEBHOOK`(Agit 웹훅) 환경 변수.
 - 인증: `.env`에 `OPENAI_API_KEY`를 넣거나, 키가 없으면 `run.sh`가 자동으로 `~/.codex/auth.json` 파일만 읽기 전용으로 마운트해 실행합니다.
-- 모델: `.env` 또는 실행 환경에 `CODEX_MODEL`을 지정합니다. 비워두면 Codex SDK가 모델을 선택합니다. 리포트에는 `ccusage`가 해당 실행에서 집계한 모델명을 기록하고, 토큰 수와 비용(USD)은 콘솔에 출력합니다. 조회에 실패하면 `확인 불가`로 표시합니다.
+- 모델: `.env` 또는 실행 환경에 `CODEX_MODEL`을 지정합니다. 비워두면 Codex SDK가 모델을 선택합니다. 리포트와 세션 사용량 콘솔 출력에는 `ccusage`가 집계한 모델명과 설정된 추론 수준을 기록하고, 토큰 수와 비용(USD)은 콘솔에만 출력합니다. 조회에 실패하면 `확인 불가`로 표시합니다.
 - 추론 수준: 기본적으로 선택한 모델의 기본값을 사용합니다. 명시하려면 `.env` 또는 실행 환경에 `CODEX_REASONING_EFFORT`를 지정하세요(예: `medium`).
 - 실행:
 ```bash

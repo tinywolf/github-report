@@ -112,7 +112,7 @@ function parseOverwriteWeeklyTrend(value) {
   );
 }
 
-// 모델과 추론 수준은 리포트에 기록하고 ccusage 사용량은 콘솔에 출력한다.
+// 모델과 추론 수준은 리포트와 콘솔에 기록하고 ccusage 사용량은 콘솔에 출력한다.
 async function addReportGenerationInfo(targetPath, threadId, reasoningEffort) {
   const reportContent = await readFile(targetPath, "utf8");
   let usage;
@@ -121,10 +121,12 @@ async function addReportGenerationInfo(targetPath, threadId, reasoningEffort) {
   } catch (error) {
     console.warn(`⚠️ ccusage에서 생성 정보를 확인하지 못했습니다: ${error.message}`);
   }
+  const model = usage?.models.join(", ") ?? "확인 불가";
+  const displayedReasoningEffort = reasoningEffort || "모델 기본값";
   const generationInfo = [
     "```",
-    `생성 모델: ${usage?.models.join(", ") ?? "확인 불가"}`,
-    `추론 수준: ${reasoningEffort || "모델 기본값"}`,
+    `생성 모델: ${model}`,
+    `추론 수준: ${displayedReasoningEffort}`,
     "```",
   ].join("\n");
 
@@ -138,6 +140,8 @@ async function addReportGenerationInfo(targetPath, threadId, reasoningEffort) {
   console.log(
     [
       "📊 Codex 세션 사용량:",
+      `  생성 모델: ${model}`,
+      `  추론 수준: ${displayedReasoningEffort}`,
       `  입력 토큰: ${formatTokenCount(usage?.inputTokens)}`,
       `  캐시된 입력 토큰: ${formatTokenCount(usage?.cachedInputTokens)}`,
       `  출력 토큰: ${formatTokenCount(usage?.outputTokens)}`,
