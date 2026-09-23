@@ -46,9 +46,12 @@ const logTitleColorsByType = {
   agent_message: "\x1b[36m",
   reasoning: "\x1b[35m",
   web_search: "\x1b[94m",
+  mcp_tool_call: "\x1b[96m",
   command_execution: "\x1b[33m",
   file_change: "\x1b[32m",
   todo_list: "\x1b[34m",
+  error: "\x1b[31m",
+  lifecycle: "\x1b[90m",
   token_usage: "\x1b[90m",
 };
 
@@ -124,6 +127,34 @@ async function addReportGenerationInfo(targetPath, model, reasoningEffort) {
 }
 
 // 스트리밍 이벤트 처리를 위한 핸들러 함수들
+const logTodoList = (item) => {
+  console.log(`${formatLogTitle(item.type, "할 일 목록")}:`);
+  for (const todo of item.items) {
+    console.log(`\t ${todo.completed ? "x" : " "} ${todo.text}`);
+  }
+};
+
+// MCP 인자와 결과에는 비밀값이나 대용량 본문이 포함될 수 있어 식별자, 상태, 오류만 출력한다.
+const logMcpToolCall = (item, lifecycle) => {
+  const message = `${formatLogTitle(item.type, `MCP 도구 ${lifecycle}`)}: ${item.server}.${
+    item.tool
+  } (${item.status})`;
+
+  if (item.error?.message) {
+    console.warn(`${message} - ${item.error.message}`);
+    return;
+  }
+
+  console.log(message);
+};
+
+const logUnknownItem = (item, lifecycle) => {
+  const itemId = item.id ? ` (${item.id})` : "";
+  console.warn(
+    `${formatLogTitle("lifecycle", `알 수 없는 항목 ${lifecycle}`)}: ${item.type}${itemId}`,
+  );
+};
+
 const handleItemCompleted = (item) => {
   switch (item.type) {
     case "agent_message":
@@ -151,35 +182,104 @@ const handleItemCompleted = (item) => {
       }
       break;
     }
+    case "mcp_tool_call":
+      logMcpToolCall(item, "완료");
+      break;
+    case "todo_list":
+      logTodoList(item);
+      break;
+    case "error":
+      console.warn(`${formatLogTitle(item.type, "경고")}: ${item.message}`);
+      break;
+    default:
+      logUnknownItem(item, "완료");
+  }
+};
+
+const handleItemStarted = (item) => {
+  switch (item.type) {
+    case "command_execution":
+      console.log(`${formatLogTitle(item.type, "명령어 실행 시작")}: ${item.command}`);
+      break;
+    case "mcp_tool_call":
+      logMcpToolCall(item, "시작");
+      break;
+    case "web_search":
+      console.log(`${formatLogTitle(item.type, "웹 검색 시작")}: ${item.query}`);
+      break;
+    case "todo_list":
+      logTodoList(item);
+      break;
+    case "file_change":
+      console.log(
+        `${formatLogTitle(item.type, "파일 변경 시작")}: ${item.changes.length}개 변경`,
+      );
+      break;
+    case "error":
+      console.warn(`${formatLogTitle(item.type, "경고")}: ${item.message}`);
+      break;
+    case "agent_message":
+    case "reasoning":
+      console.log(`${formatLogTitle("lifecycle", "항목 시작")}: ${item.type} (${item.id})`);
+      break;
+    default:
+      logUnknownItem(item, "시작");
   }
 };
 
 const handleItemUpdated = (item) => {
   switch (item.type) {
-    case "todo_list": {
-      console.log(`${formatLogTitle(item.type, "할 일 목록")}:`);
-      for (const todo of item.items) {
-        console.log(`\t ${todo.completed ? "x" : " "} ${todo.text}`);
-      }
+    case "todo_list":
+      logTodoList(item);
       break;
-    }
+    case "mcp_tool_call":
+      logMcpToolCall(item, "업데이트");
+      break;
+    case "command_execution":
+    case "file_change":
+      console.log(
+        `${formatLogTitle(item.type, "항목 업데이트")}: ${item.type} (${item.status})`,
+      );
+      break;
+    case "web_search":
+      console.log(`${formatLogTitle(item.type, "웹 검색 업데이트")}: ${item.query}`);
+      break;
+    case "error":
+      console.warn(`${formatLogTitle(item.type, "경고")}: ${item.message}`);
+      break;
+    case "agent_message":
+    case "reasoning":
+      console.log(`${formatLogTitle("lifecycle", "항목 업데이트")}: ${item.type} (${item.id})`);
+      break;
+    default:
+      logUnknownItem(item, "업데이트");
   }
 };
 
 const handleEvent = (event) => {
   switch (event.type) {
+    case "thread.started":
+      console.log(`${formatLogTitle("lifecycle", "스레드 시작")}: ${event.thread_id}`);
+      break;
+    case "turn.started":
+      console.log(formatLogTitle("lifecycle", "턴 시작"));
+      break;
     case "item.completed":
       handleItemCompleted(event.item);
       break;
     case "item.updated":
-    case "item.started":
       handleItemUpdated(event.item);
+      break;
+    case "item.started":
+      handleItemStarted(event.item);
       break;
     case "turn.completed":
       console.log(
-        `${formatLogTitle("token_usage", "토큰 사용량")}: 입력 ${event.usage.input_tokens}, 캐시된 입력 ${event.usage.cached_input_tokens}, 출력 ${
-          event.usage.output_tokens
-        }`,
+        `${formatLogTitle("token_usage", "토큰 사용량")}: 입력 ${
+          event.usage.input_tokens
+        }, 캐시된 입력 ${event.usage.cached_input_tokens}, 캐시 쓰기 ${
+          event.usage.cache_write_input_tokens
+        }, 출력 ${event.usage.output_tokens}, 추론 출력 ${event.usage.reasoning_output_tokens}`,
       );
       break;
     case "turn.failed": {
@@ -188,6 +288,13 @@ const handleEvent = (event) => {
       // 에러 발생 시 즉시 예외를 던져 루프를 중단시킨다.
       throw new Error(errorMessage);
     }
+    case "error":
+      console.error(`${formatLogTitle("error", "스트림 오류")}: ${event.message}`);
+      throw new Error(event.message);
+    default:
+      console.warn(
+        `${formatLogTitle("lifecycle", "알 수 없는 이벤트")}: ${event.type || "unknown"}`,
+      );
   }
 };
 
