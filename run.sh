@@ -1,14 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
-# 왜: 로컬에서도 Jenkins 파이프라인과 동일한 흐름(생성→검증→사용자 승인→전송)을 한 번에 실행하기 위함.
-# 어떻게: .env를 로드한 뒤 분리된 파이프라인 스크립트를 순차 실행한다.
+# 로컬에서 생성→검증→사용자 승인→전송→정리 흐름을 한 번에 실행하기 위한 스크립트
+# .env를 로드한 뒤 분리된 파이프라인 스크립트를 순차 실행한다.
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$ROOT_DIR"
 
-# 왜: Codex SDK가 오래되면 기본 모델/지원 모델 동작이 달라질 수 있어 실행 전에 인지할 필요가 있다.
-# 어떻게: npm outdated 결과만 보여주고, outdated/조회 실패 exit code와 무관하게 다음 단계로 진행한다.
+# Codex SDK가 오래되면 기본 모델/지원 모델 동작이 달라질 수 있어 실행 전에 인지할 필요가 있다.
+# npm outdated 결과만 보여주고, outdated/조회 실패 exit code와 무관하게 다음 단계로 진행한다.
 codex_sdk_outdated_status=0
 echo "🔎 Codex SDK 최신 버전 확인..."
 npm outdated @openai/codex-sdk || codex_sdk_outdated_status=$?
@@ -79,8 +79,8 @@ docker run -it --rm \
   -v "$report_output_dir:/app/weekly-trend-draft" \
   github-report-generator
 
-# 왜: 사용자가 코드 검증 결과와 리포트 내용을 함께 확인한 뒤 발행 여부를 결정하게 한다.
-# 어떻게: 생성 컨테이너가 정상 종료된 뒤 같은 결과물을 다시 검증하고, 통과한 경우에만 입력을 받는다.
+# 사용자가 코드 검증 결과와 리포트 내용을 함께 확인한 뒤 발행 여부를 결정하게 한다.
+# 생성 컨테이너가 정상 종료된 뒤 같은 결과물을 다시 검증하고, 통과한 경우에만 입력을 받는다.
 echo ""
 echo "🔎 사용자 승인 전 리포트를 최종 검증합니다..."
 node scripts/validate-weekly-report.js --report "$report_path" --source "$source_path"
@@ -97,4 +97,7 @@ if [[ -n "$response" && "$response" != "y" && "$response" != "Y" ]]; then
   exit 0
 fi
 
+# 기존 보관 파일이 있으면 전송 전에 중단해 같은 날짜의 리포트를 중복 발행하지 않는다.
+scripts/cleanup-published-report.sh --check "$report_path"
 scripts/publish-report.sh "$report_path"
+scripts/cleanup-published-report.sh "$report_path"

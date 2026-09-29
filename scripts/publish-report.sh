@@ -53,7 +53,7 @@ PYCODE
 
 echo "[publish] Sending report to Agit..."
 
-curl -sS -X POST -H "Content-Type: application/json" \
+curl -fsS -X POST -H "Content-Type: application/json" \
      --data-binary "@$PAYLOAD_FILE" \
      "$AGIT_WEBHOOK"
 
