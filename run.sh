@@ -98,6 +98,6 @@ if [[ -n "$response" && "$response" != "y" && "$response" != "Y" ]]; then
 fi
 
 # 기존 보관 파일이 있으면 전송 전에 중단해 같은 날짜의 리포트를 중복 발행하지 않는다.
-scripts/cleanup-published-report.sh --check "$report_path"
+# scripts/cleanup-published-report.sh --check "$report_path"
 scripts/publish-report.sh "$report_path"
 scripts/cleanup-published-report.sh "$report_path"
